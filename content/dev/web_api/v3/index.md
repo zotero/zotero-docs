@@ -5,6 +5,7 @@ This is the default version of the API, and it is recommended for new developmen
 ## API Documentation
 
 -   [Basics](dev/web_api/v3/basics)
+-   [Local API](dev/web_api/v3/local_api)
 -   [Item Types/Fields](dev/web_api/v3/types_and_fields)
 -   [Write Requests](dev/web_api/v3/write_requests)
 -   [File Uploads](dev/web_api/v3/file_upload)
