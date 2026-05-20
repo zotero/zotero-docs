@@ -21,8 +21,11 @@ Quick search can be used in three different modes:
 -   "Everything" - matches against all fields, tags, text in notes, and indexed text in PDFs
 
 ### Speeding Up Quick Searches
+By default, the quick search works as "search-as-you-type" so it immediately begins searching when you begin typing a search term.
 
-When you have very large collections, the quick search's "search-as-you-type" search might become slow. To speed things up, type a quotation mark " mark at the start of your search. This prevents searches from running until you type Enter/Return or a second quotation mark.
+This can result in a slow search experience when working with very large collections.
+
+To speed things up, type a quotation mark `"` mark at the start of your search. This enables the advanced search mode and only starts the search when you type `Enter`/`Return`.
 
 ## Advanced Search
 
