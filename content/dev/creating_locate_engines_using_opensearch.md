@@ -25,11 +25,11 @@ For a more complicated service:
 
 Zotero supports most of the fields specified by the OpenURL specification in any of the following namespaces:
 
--   <info:ofi/fmt:kev:mtx:journal>
--   <info:ofi/fmt:kev:mtx:book>
--   <info:ofi/fmt:kev:mtx:patent>
--   <info:ofi/fmt:kev:mtx:sch_svc>
--   <info:ofi/fmt:kev:mtx:dissertation>
+-   `<info:ofi/fmt:kev:mtx:journal>`
+-   `<info:ofi/fmt:kev:mtx:book>`
+-   `<info:ofi/fmt:kev:mtx:patent>`
+-   `<info:ofi/fmt:kev:mtx:sch_svc>`
+-   `<info:ofi/fmt:kev:mtx:dissertation>`
 
 These namespaces are treated interchangeably. For a full list of fields, see the [OpenURL documentation](http://www.niso.org/kst/reports/standards/kfile_download?id%3Austring%3Aiso-8859-1=Z39-88-2004.pdf&pt=RkGKiXzW643YeUaYUqZ1BFwDhIG4-24RJbcZBWg8uE4vWdpZsJDs4RjLz0t90_d5_ymGsj_IKVaGZww13HuDlZQ8NBt1sTxP_v4iiGqH7rSaAeVDnMfeKJrrJ_JSEGPB).
 
