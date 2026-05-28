@@ -22,6 +22,7 @@ This page contains a list of WebDAV services which provide a free plan and which
     <tr><td><a href="https://www.free-hidrive.com/product/hidrive-free.html">HiDrive</a></td><td>5 GB</td><td colspan="2">https://webdav.hidrive.strato.com/users/{username}/zotero</td></tr>
     <tr><td><a href="https://www.idrivesync.com/pricing">iDriveSync</a></td><td>10 GB</td><td>https://dav.idrivesync.com/zotero</td><td><a href="/forum/discussion/26858/webdav-syncing-with-idrivesync-is-working/">Some users have had difficulties with this service</a> and their documentation <a href="https://www.idrivesync.com/webdav">recommends against extensive use</a>.</td></tr>
     <tr><td><a href="https://koofr.eu/blog/posts/koofr-with-zotero-via-webdav">Koofr</a></td><td>10 GB</td><td>https://app.koofr.net/dav/Koofr/zotero</td><td>See setup instructions <a href="https://koofr.eu/blog/posts/koofr-with-zotero-via-webdav">here</a>.</td></tr>
+    <tr><td><a href="https://www.drivehq.com/">DriveHQ</a></td><td>5 GB</td><td>https://webdav.drivehq.com/zotero</td><td></td></tr>
     <tr><td><a href="http://www.storegate.com/en/home-user-usd/plans/">Storegate</a></td><td>2 GB</td><td colspan="2">https://webdav1.storegate.com/{username}/home/{username}/zotero</td></tr>
     <tr><td><a href="https://disk.yandex.ru">Yandex Disk</a></td><td>10 GB</td><td>https://webdav.yandex.ru/zotero</td><td>Documentation is in Russian.</td></tr>
   </tbody>
