@@ -119,3 +119,9 @@ markdown_extensions:
         ellipsis: "…"
         ndash: "—"
         mdash: "—"
+
+# Reusable content lives in content/_partials/ and is inlined elsewhere via
+# the `<!-- include: name -->` hook (see hooks.py). Exclude it from the build
+# so partials aren't emitted as standalone pages.
+exclude_docs: |
+  _partials/
