@@ -68,12 +68,12 @@ You can also create a saved search in a library by right-clicking on the library
 
 It is possible to run complex Boolean searches by using multiple Saved Searches. For example, to run the search `(a OR b) AND (c OR d)`, first make a Saved Search called "Condition1" for `(a OR b)`, then make a Saved Search called "Condition2" for `(c OR d)`. Finally, run a third Advanced Search and search for `"Collection" "is" "Condition1" AND "Collection" "is" "Condition2"`.
 
-## PDF Full-Text Indexing
+## Full-Text Indexing
 
-Full-text PDF indexing allows embedded text within PDFs to be searched with Quick Search (via the "Everything" option) and Advanced Search (via "Attachment Content"). Indexing happens automatically in the background when Zotero is idle.
+Full-text indexing allows embedded text within PDFs, EPUBs, HTML and text files to be searched with Quick Search (via the "Everything" option) and Advanced Search (via "Attachment Content"). Indexing happens automatically in the background when Zotero is idle.
 
-You can control how much text in a PDF is indexed in the [Search pane](preferences/search) of [Zotero preferences](preferences) (default: 500000 characters, 100 pages). You can remove indexed text with the "Clear Index…" button or re-create the index from scratch using the "Rebuild Index…" button. You can check the index status of any PDF attachment by selecting the attachment item in the Zotero library and looking at the "Indexed:" field in the right pane.
+You can control how much text in a PDF/EPUB/HTML/text file is indexed in the [Search pane](preferences/search) of [Zotero preferences](preferences) (default: 500000 characters, 100 pages). You can remove indexed text with the "Clear Index…" button or re-create the index from scratch using the "Rebuild Index…" button. You can check the index status of any PDF/EPUB/HTML attachment by selecting the attachment item in the Zotero library and looking at the "Indexed:" field in the right pane.
 
 If an item isn't being indexed (e.g., if it is not showing up in an 'Everything' Quick Search), verify that the item has searchable text and that the text is properly stored in the PDF (e.g., try to copy text out of the document and ensure that it is high quality). If the PDF has valid text, rebuild the item's index by right-clicking on it and choosing "Reindex Item". If you are still having issues, please ask a question on the [Zotero forums](/forum).
 
-**Note:** At this time, only PDF full text content (and plain text files) can be indexed by Zotero. Other document types (e.g., .docx, .odt, .epub) cannot be indexed by Zotero.
+**Note:** At this time, only PDF/EPUB/HTML full text content (and plain text files) can be indexed by Zotero. Other document types (e.g., .docx, .odt) cannot be indexed by Zotero.
