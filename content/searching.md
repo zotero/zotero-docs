@@ -70,7 +70,7 @@ It is possible to run complex Boolean searches by using multiple Saved Searches.
 
 ## Full-Text Indexing
 
-Full-text indexing allows embedded text within PDFs, EPUBs, HTML and text files to be searched with Quick Search (via the "Everything" option) and Advanced Search (via "Attachment Content"). Indexing happens automatically in the background when Zotero is idle.
+Full-text indexing allows embedded text within PDFs, EPUBs, HTML, and text files to be searched with Quick Search (via the "Everything" option) and Advanced Search (via "Attachment Content"). Indexing happens automatically in the background when Zotero is idle.
 
 You can control how much text in a PDF/EPUB/HTML/text file is indexed in the [Search pane](preferences/search) of [Zotero preferences](preferences) (default: 500000 characters, 100 pages). You can remove indexed text with the "Clear Index…" button or re-create the index from scratch using the "Rebuild Index…" button. You can check the index status of any PDF/EPUB/HTML attachment by selecting the attachment item in the Zotero library and looking at the "Indexed:" field in the right pane.
 

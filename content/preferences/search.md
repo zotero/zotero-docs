@@ -15,7 +15,7 @@ The Search preferences pane is used to configure and manage Zotero's [PDF/EPUB/H
 
 Zotero creates an index to allow the full text contents of PDF and plain-text attachments in your library to be searched with Quick Search ("Everything" option) and Advanced Search (via "Attachment Content").
 
-**Note:** At this time, PDF, EPUB and HTML full text content (and plain text files) can be indexed by Zotero. Other document types (e.g., .docx, .odt) cannot be indexed by Zotero.
+**Note:** At this time, PDF, EPUB, and HTML full text content (and plain text files) can be indexed by Zotero. Other document types (e.g., .docx, .odt) cannot be indexed by Zotero.
 
 This section includes these options to manage your full-text index:
 
