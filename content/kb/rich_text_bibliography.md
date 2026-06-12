@@ -8,12 +8,12 @@ tags:
 
 You can apply rich text formatting by manually adding the following HTML-like tags to fields in your Zotero library:
 
--   <i> and </i> for *italics*
--   <b> and </b> for **bold**
--   <sub> and </sub> for <sub>subscript</sub>
--   <sup> and </sup> for <sup>superscript</sup>
--   <span style="font-variant:small-caps;"> and </span> for <span style="font-variant: small-caps;">smallcaps</span>
--   <span class="nocase"> and </span> to <span class="nocase">suppress capitalization rules (e.g., for foreign phrases within English titles)</span>
+-   `<i>` and `</i>` for *italics*
+-   `<b>` and `</b>` for **bold**
+-   `<sub>` and </sub> for <sub>subscript</sub>
+-   `<sup>` and `</sup>` for <sup>superscript</sup>
+-   `<span style="font-variant:small-caps;">` and `</span>` for <span style="font-variant: small-caps;">smallcaps</span>
+-   `<span class="nocase">` and `</span>` to suppress capitalization rules (e.g., for foreign phrases within English titles)
 
 Zotero will automatically replace these tags by the specified formatting in bibliographic output. E.g. "<i>Pseudomonas aureofaciens</i> nov. spec. and its pigments" will become "*Pseudomonas aureofaciens* nov. spec. and its pigments".
 
