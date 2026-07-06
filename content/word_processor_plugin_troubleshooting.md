@@ -121,7 +121,7 @@ Zotero's Word add-on may not work for documents in OneDrive. If you encounter th
 
 #### Zotero tab does not appear in the Word 2016+ ribbon
 
-First, make sure you've tried the [general troubleshooting steps](#zotero_toolbar_doesn_t_appear).
+First, make sure you've tried the [general troubleshooting steps](#zotero_toolbar_doesnt_appear).
 
 Make sure you're running the latest stable version of Word.
 
