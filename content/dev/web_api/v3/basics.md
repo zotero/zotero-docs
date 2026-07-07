@@ -368,8 +368,8 @@ Several examples of read request URLs and their responses:
     <tr><th colspan="2">Multi-object JSON response: top-level items in a collection</th></tr>
   </thead>
   <tbody>
-    <tr><td>Request</td><td><https://api.zotero.org/users/475425/collections/9KH9TNSJ/items/top?v=3></td></tr>
-    <tr><td>Response</td><td><https://gist.github.com/6eeace93a5c29775d39c></td></tr>
+    <tr><td>Request</td><td>https://api.zotero.org/users/475425/collections/9KH9TNSJ/items/top?v=3</td></tr>
+    <tr><td>Response</td><td>https://gist.github.com/6eeace93a5c29775d39c</td></tr>
   </tbody>
 </table>
 
@@ -378,8 +378,8 @@ Several examples of read request URLs and their responses:
     <tr><th colspan="2">Single-object JSON response: individual item</th></tr>
   </thead>
   <tbody>
-    <tr><td>Request</td><td><https://api.zotero.org/users/475425/items/X42A7DEE?v=3></td></tr>
-    <tr><td>Response</td><td><https://gist.github.com/f1030b9609aadc51ddec></td></tr>
+    <tr><td>Request</td><td>https://api.zotero.org/users/475425/items/X42A7DEE?v=3</td></tr>
+    <tr><td>Response</td><td>https://gist.github.com/f1030b9609aadc51ddec</td></tr>
   </tbody>
 </table>
 
@@ -388,8 +388,8 @@ Several examples of read request URLs and their responses:
     <tr><th colspan="2">Multi-object JSON response: collections for a user</th></tr>
   </thead>
   <tbody>
-    <tr><td>Request</td><td><https://api.zotero.org/users/475425/collections?v=3></td></tr>
-    <tr><td>Response</td><td><https://gist.github.com/0bc17ca64ee7d3bc9063></td></tr>
+    <tr><td>Request</td><td>https://api.zotero.org/users/475425/collections?v=3</td></tr>
+    <tr><td>Response</td><td>https://gist.github.com/0bc17ca64ee7d3bc9063</td></tr>
   </tbody>
 </table>
 
@@ -398,8 +398,8 @@ Several examples of read request URLs and their responses:
     <tr><th colspan="2">Atom feed: items in a library</th></tr>
   </thead>
   <tbody>
-    <tr><td>Request</td><td><https://api.zotero.org/users/475425/items?format=atom&v=3></td></tr>
-    <tr><td>Response</td><td><https://gist.github.com/24172188ea79efa210b5></td></tr>
+    <tr><td>Request</td><td>https://api.zotero.org/users/475425/items?format=atom&v=3</td></tr>
+    <tr><td>Response</td><td>https://gist.github.com/24172188ea79efa210b5</td></tr>
   </tbody>
 </table>
 
@@ -408,8 +408,8 @@ Several examples of read request URLs and their responses:
     <tr><th colspan="2">Formatted bibliography: items in a collection</th></tr>
   </thead>
   <tbody>
-    <tr><td>Request</td><td><https://api.zotero.org/users/475425/collections/9KH9TNSJ/items?format=bib></td></tr>
-    <tr><td>Response</td><td><https://gist.github.com/77bc2413cce4c219f862></td></tr>
+    <tr><td>Request</td><td>https://api.zotero.org/users/475425/collections/9KH9TNSJ/items?format=bib</td></tr>
+    <tr><td>Response</td><td>https://gist.github.com/77bc2413cce4c219f862</td></tr>
   </tbody>
 </table>
 
