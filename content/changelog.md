@@ -2,6 +2,22 @@
 
 Changes in released versions of Zotero 9.0 are documented on this page. To follow development, see the [commit log on GitHub](https://github.com/zotero/zotero/commits/). More recent changes may be available in a [beta build](beta_builds).
 
+## Changes in 9.0.6 (July 7, 2026)
+
+- Citation dialog optimizations
+  - Allow clicking "Accept" button while item-details panel is open
+  - Allow accepting the dialog via Cmd-Return / Ctrl-Enter from inside item-details panel
+- Fixed detection of local file changes in group libraries (since 9.0)
+- [Windows] Fixed "Custom UI Runtime Error in Zotero.dotm" in Word
+- [LibreOffice] Fixed citing in tables at the very start of the document
+- Fixed settings search not filtering and not highlighting results
+- Disable locale selector when parent style specifies `default-locale`
+- File renaming fixes
+  - Fixed renaming not triggering on parent item type changes
+  - Don't crash on unbalanced `{{endif}}` in template engine
+- Fixed guidance dialog not showing on corrupted login manager
+- [Security] Updated Mozilla platform to [140.12.0esr](https://www.mozilla.org/en-US/security/advisories/mfsa2026-58/)
+
 ## Changes in 9.0.5 (June 10, 2026)
 
 *Zotero for Windows only*
