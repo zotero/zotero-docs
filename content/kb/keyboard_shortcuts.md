@@ -68,6 +68,7 @@ Zotero supports most standard shortcuts for switching between tabs:
 -   `Cmd`+`Shift`+`[`/`]` (macOS only)
 -   `Cmd`+`Option`+`←`/`→` (macOS only)
 -   `Cmd`/`Ctrl`+`1` through `9`
+-   `Cmd`/`Ctrl`+`;` (opens the list all tabs menu)
 
 ### Searching
 
