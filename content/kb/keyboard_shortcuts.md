@@ -101,15 +101,94 @@ Zotero supports most standard shortcuts for switching between tabs:
 | Count Items (Result Appears in Right-Hand Pane) | `Ctrl`+A                                          | `Cmd`+A              |
 | Edit Collection Names (Left Pane)               | `F2`                                              | `Return`             |
 
-### PDF Reader
+### Reader
 
-*This section is incomplete. See [this GitHub comment](https://github.com/zotero/zotero/issues/1986#issuecomment-877064552) for other available shortcuts.*
+These shortcuts apply in Zotero's built-in PDF, EPUB, and snapshot reader. Some are specific to a particular document type, as noted.
 
-| Function                        | Windows/Linux                     | macOS                    |
-|---------------------------------|-----------------------------------|--------------------------|
-| Switch between annotation tools | `Alt`-`1`/`2`/`3`/`4`             | `Option`-`1`/`2`/`3`/`4` |
-| Back (in-PDF link)              | `Alt`+`Left`, `Ctrl`+`[` (Linux)  | `Cmd`+`Left`, `Cmd`+`[`  |
-| Forward (in-PDF link)           | `Alt`+`Right`, `Ctrl`+`]` (Linux) | `Cmd`+`Right`, `Cmd`+`]` |
+#### Annotation Tools
+
+| Function                                         | Windows/Linux                                  | macOS                                                |
+|--------------------------------------------------|------------------------------------------------|------------------------------------------------------|
+| Toggle highlight tool                            | `Alt`+`1`                                      | `Option`+`1`                                         |
+| Toggle underline tool                            | `Alt`+`2`                                      | `Option`+`2`                                         |
+| Toggle note tool                                 | `Alt`+`3`                                      | `Option`+`3`                                         |
+| Toggle text tool *(PDF)*                         | `Alt`+`4`                                      | `Option`+`4`                                         |
+| Toggle area (image) selection tool *(PDF)*       | `Alt`+`5`                                      | `Option`+`5`                                         |
+| Toggle draw (ink) tool *(PDF)*                   | `Alt`+`6`                                      | `Option`+`6`                                         |
+| Toggle eraser tool *(PDF)*                       | `Alt`+`7`                                      | `Option`+`7`                                         |
+| Select (pointer) tool *(PDF)*                    | `S`                                            | `S`                                                  |
+| Hand (pan) tool *(PDF)*                          | `H`                                            | `H`                                                  |
+| Cycle to next annotation color                   | `Alt`+`8` *(PDF)*, `Alt`+`4` *(EPUB/snapshot)* | `Option`+`8` *(PDF)*, `Option`+`4` *(EPUB/snapshot)* |
+| Choose annotation color (while a tool is active) | `1`–`8`                                        | `1`–`8`                                              |
+
+#### Creating and Editing Annotations
+
+| Function                                                | Windows/Linux                                                        | macOS                                                                       |
+|---------------------------------------------------------|----------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| Create annotation from selected text *(PDF)*            | `Ctrl`+`Alt`+`1`/`2`/`3`/`4`/`5`(highlight/underline/note/text/area) | `Control`+`Option`+`1`/`2`/`3`/`4`/`5` (highlight/underline/note/text/area) |
+| Create annotation from selected text *(EPUB/snapshot)*  | `Ctrl`+`Alt`+`1`/`2`/`3` (highlight/underline/note)                  | `Control`+`Option`+`1`/`2`/`3` (highlight/underline/note)                   |
+| Select all annotations                                  | `Ctrl`+`A`                                                           | `Cmd`+`A`                                                                   |
+| Move selected annotation *(PDF)*                        | `←`/`→`/`↑`/`↓`                                                      | `←`/`→`/`↑`/`↓`                                                             |
+| Resize selected highlight/underline *(PDF)*             | `Alt`+`Shift`+`←`/`→`/`↑`/`↓`                                        | `Cmd`+`Shift`+`←`/`→`/`↑`/`↓`                                               |
+| Resize selected image/text/ink annotation *(PDF)*       | `Shift`+`←`/`→`/`↑`/`↓`                                              | `Shift`+`←`/`→`/`↑`/`↓`                                                     |
+| Resize/extend selected annotation *(EPUB/snapshot)*     | `Shift`+`←`/`→` (add `Alt` for word, `Ctrl`+`Shift` to adjust start) | `Shift`+`←`/`→` (add `Option` for word, `Cmd`+`Shift` to adjust start)      |
+| Delete selected annotation                              | `Del` / `Backspace`                                                  | `Del` / `Backspace`                                                         |
+| Undo annotation change                                  | `Ctrl`+`Z`                                                           | `Cmd`+`Z`                                                                   |
+| Redo annotation change                                  | `Ctrl`+`Shift`+`Z`                                                   | `Cmd`+`Shift`+`Z`                                                           |
+| Deselect annotation/tool, close popup                   | `Escape`                                                             | `Escape`                                                                    |
+
+#### Navigation
+
+| Function                                            | Windows/Linux                                     | macOS                                                |
+|-----------------------------------------------------|---------------------------------------------------|------------------------------------------------------|
+| Scroll down / go to next page                       | `Space`, `PgDn`; `Alt`+`↓` *(PDF)*; `↓`/`→` *(EPUB)* | `Space`, `PgDn`; `Option`+`↓` *(PDF)*; `↓`/`→` *(EPUB)* |
+| Scroll up / go to previous page                     | `Shift`+`Space`, `PgUp`; `Alt`+`↑` *(PDF)*; `↑`/`←` *(EPUB)* | `Shift`+`Space`, `PgUp`; `Option`+`↑` *(PDF)*; `↑`/`←` *(EPUB)* |
+| Go to beginning / end of document                   | `Home` / `End`                                    | `Home` / `End`                                       |
+| Move focus to the "go to page" box                  | `Ctrl`+`Alt`+`G`                                  | `Cmd`+`Alt`+`G`                                      |
+| Go back (after following a link)                    | `Alt`+`←`, `Ctrl`+`[` *(Linux)*                   | `Cmd`+`←`, `Cmd`+`[`                                 |
+| Go forward                                          | `Alt`+`→`, `Ctrl`+`]` *(Linux)*                   | `Cmd`+`→`, `Cmd`+`]`                                 |
+
+#### Zoom and Display
+
+| Function                              | Windows/Linux             | macOS                   |
+|---------------------------------------|---------------------------|-------------------------|
+| Zoom in / increase font size          | `Ctrl`+`+` / `Ctrl`+`=`   | `Cmd`+`+` / `Cmd`+`=`   |
+| Zoom out / decrease font size         | `Ctrl`+`-`                | `Cmd`+`-`               |
+| Reset zoom                            | `Ctrl`+`0`                | `Cmd`+`0`               |
+
+#### Finding Text
+
+| Function                    | Windows/Linux      | macOS              |
+|-----------------------------|--------------------|--------------------|
+| Find text in the document   | `Ctrl`+`F`         | `Cmd`+`F`          |
+| Find next                   | `Ctrl`+`G`         | `Cmd`+`G`          |
+| Find previous               | `Ctrl`+`Shift`+`G` | `Cmd`+`Shift`+`G`  |
+| Print the document          | `Ctrl`+`P`         | `Cmd`+`P`          |
+
+#### Read Aloud
+
+Zotero's reader can [read your documents aloud](https://www.zotero.org/blog/zotero-9/) using natural-sounding voices. Press `R` or `L` to start reading from the current location or text selection; the shortcuts below apply while Read Aloud is active.
+
+| Function                                    | Windows/Linux                     | macOS                                   |
+|---------------------------------------------|-----------------------------------|-----------------------------------------|
+| Start Read Aloud                            | `R` or `L`                        | `R` or `L`                              |
+| Play / pause                                | `Space`                           | `Space`                                 |
+| Skip to previous / next sentence            | `←` / `→`                         | `←` / `→`                               |
+| Skip to previous / next paragraph           | `Alt`+`←` / `Alt`+`→`             | `Option`+`←` / `Option`+`→`             |
+| Highlight / underline the current passage   | `H` / `U`                         | `H` / `U`                               |
+
+After annotating a passage:
+
+| Function                                       | Windows/Linux                                     | macOS                                             |
+|------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
+| Dismiss                                        | `Enter` or `Escape`                               | `Enter` or `Escape`                               |
+| Delete annotation                              | `Del` / `Backspace`                               | `Del` / `Backspace`                               |
+| Move annotation                                | `←` / `→`                                         | `←` / `→`                                         |
+| Extend annotation by sentence                  | `Ctrl`+`←`/`→`                                    | `Cmd`+`←`/`→`                                     |
+| Switch to highlight / underline                | `H` / `U`                                         | `H` / `U`                                         |
+| Set annotation color                           | `1`–`8`                                           | `1`–`8`                                           |
+
+The annotation is saved immediately, and the popup will close on its own after a short time.
 
 ### Notes
 
