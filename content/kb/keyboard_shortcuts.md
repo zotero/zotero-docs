@@ -163,6 +163,11 @@ These shortcuts apply in Zotero's built-in PDF, EPUB, and snapshot reader. Some 
 | Find text in the document   | `Ctrl`+`F`         | `Cmd`+`F`          |
 | Find next                   | `Ctrl`+`G`         | `Cmd`+`G`          |
 | Find previous               | `Ctrl`+`Shift`+`G` | `Cmd`+`Shift`+`G`  |
+
+#### Miscellaneous
+
+| Function                    | Windows/Linux      | macOS              |
+|-----------------------------|--------------------|--------------------|
 | Print the document          | `Ctrl`+`P`         | `Cmd`+`P`          |
 
 #### Read Aloud
