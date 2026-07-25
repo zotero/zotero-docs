@@ -16,7 +16,7 @@ tags:
 -   Chrome (current Stable or Extended Stable version)
 -   Edge (current Stable or Extended Stable version)
 -   Firefox 115 or later
--   Safari on macOS 11 Big Sur or later ([details](kb/zotero_connector_and_safari))
+-   Safari 16.6+ on macOS 11 Big Sur or later ([details](kb/zotero_connector_and_safari))
 
 ## Word Processor Plugins
 
