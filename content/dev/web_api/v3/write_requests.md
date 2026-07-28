@@ -4,7 +4,7 @@ This page documents the write methods of the [Zotero Web API](dev/web_api/v3/). 
 
 An [API key](dev/web_api/v3/basics#authentication) with write access to a given library is necessary to use write methods.
 
-The [local API](dev/web_api/v3/local_api) supports the same write methods against the local database. Writes there use a local API key granted by the user at runtime and check preconditions against local object versions; see [Local API](dev/web_api/v3/local_api#write_requests) for the differences.
+In Zotero 10, the [local API](dev/web_api/v3/local_api) supports the same write methods against the local database. Writes there use a local API key granted by the user at runtime and check preconditions against local object versions; see [Local API](dev/web_api/v3/local_api#write_requests) for the differences.
 
 ## JSON Object Data
 
@@ -547,7 +547,7 @@ Local object keys should conform to the pattern `/[23456789ABCDEFGHIJKLMNPQRSTUV
 
 If using [versioned write requests](dev/web_api/v3/syncing#version_numbers) (i.e., those that include an `If-Unmodified-Since-Version` HTTP header or individual object `version` properties), `Zotero-Write-Token` is redundant and should be omitted.
 
-The [local API](dev/web_api/v3/local_api) also caches write tokens for 12 hours, but only in memory, so a token is forgotten if Zotero restarts.
+In Zotero 10, the [local API](dev/web_api/v3/local_api) also caches write tokens for 12 hours, but only in memory, so a token is forgotten if Zotero restarts.
 
 ## Examples
 
