@@ -98,7 +98,7 @@ Changes made through the local API are ordinary local changes. They're visible i
 In Zotero 10, the three-phase [file upload](dev/web_api/v3/file_upload) flow works locally, with the uploads going to Zotero itself rather than to S3:
 
 1.  `POST <userOrGroupPrefix>/items/<itemKey>/file` with `md5`, `filename`, `filesize`, and `mtime` parameters, and an `If-Match` or `If-None-Match` header, exactly as in the Web API. The response contains a `url` pointing at `/api/local/uploads/<uploadKey>` on the local server, along with `uploadKey`, `contentType`, and empty `prefix` and `suffix` strings. If the file on disk already matches the given MD5, the response is `{ "exists": 1 }` and no upload is needed.
-2.  `POST` the file contents to `url`. A successful upload returns `201 Created`. The received bytes must hash to the `md5` provided in the previous step, or the response is `400`. This request needs `Zotero-Server-ID` but not an API key, since the upload key authorizes it. Upload keys expire after an hour.
+2.  `POST` the file contents to `url`. A successful upload returns `201 Created`. The received bytes must hash to the `md5` provided in the previous step, or the response is `400`. This request doesn't need `Zotero-Server-ID` or an API key, since the upload key authorizes it. Upload keys expire after an hour.
 3.  `POST` to the file endpoint again with `upload=<uploadKey>`, repeating the `If-Match` or `If-None-Match` header. Zotero moves the uploaded file into the attachment's storage directory and updates the item, returning `204 No Content` with the new library version in `Last-Modified-Version`.
 
 Uploads are only accepted for stored-file attachments (`imported_file` and `imported_url`); other attachment types return `400`. Files must be under 4 GB.
