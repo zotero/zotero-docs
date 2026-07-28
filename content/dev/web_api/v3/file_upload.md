@@ -4,6 +4,8 @@ In addition to providing ways to [read](dev/web_api/v3/basics#read_requests) and
 
 The exact process depends on whether you are adding a new attachment file or modifying an existing one and whether you are performing a full upload or uploading a binary diff.
 
+The [local API](dev/web_api/v3/local_api#file_uploads) supports the same full-upload flow, with the file going to Zotero rather than to S3. Binary diffs are not supported locally.
+
 ## 1a) Create a new attachment
 
 ### i. Get attachment item template
