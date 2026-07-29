@@ -66,22 +66,23 @@ If your plugin registers menus with `Zotero.MenuManager`, note that the `collect
 
 When more than one collection row is selected, the items list contains library header and spacer rows in addition to item rows. If your plugin walks the list via `getRow()` or `_rows`, check `row.isObjectRow` before treating a row as an item. `getSortedItems()` already filters these rows out.
 
-## Search API
+## Search changes
 
-- `Zotero.Search#addCondition()` throws if the legacy `required` parameter is truthy. Use a condition group instead: wrap conditions in `groupStart`/`groupEnd` conditions with a `joinMode`.
+### Search API
+
+- Searches can now express [much more complicated logic](https://forums.zotero.org/discussion/132515/available-for-beta-testing-more-advanced-advanced-search) using condition groups. Wrap conditions in `groupStart`/`groupEnd` conditions with a `joinMode`. Use `resultLevel` to specify what the search returns (`item`, `attachment`, `note`, or `annotation`) or, within a group, the level at which the group's conditions match (e.g., 'items that have a single annotation matching these conditions').
+- `Zotero.Search#addCondition()` throws if the legacy `required` parameter is truthy. Use a condition group instead.
 - The `fulltextWord` condition was removed. Use `fulltextContent`, which is now backed by a real full-text index and is fast enough for general use.
-- The `childNote` condition is deprecated; saved searches containing it are automatically migrated to `note`.
-- New conditions and operators are available (annotation properties, item counts, `isEmpty`/`isNotEmpty`, condition groups, result levels) — see the Zotero 10 beta announcements for details.
+- The `childNote` condition is deprecated; saved searches containing it are automatically migrated to `note` with a `resultLevel` set to `item`.
+- New conditions and operators are available (annotation properties, item/tag counts, `isEmpty`/`isNotEmpty`, and more).
 
-## Advanced Search window
+### Advanced Search window
 
-Advanced Search moved into the main window, and `chrome://zotero/content/advancedSearch.xhtml` no longer exists. `ZoteroPane.openAdvancedSearchWindow()` still works and forwards to the new `ZoteroPane.toggleAdvancedSearchState('open')`, but anything loading the window URL directly will break.
+Advanced Search moved into the main window, and `chrome://zotero/content/advancedSearch.xhtml` no longer exists.
 
-## Full-text search
+### Full-text search
 
-Full-text content search was rewritten on SQLite FTS5. The `fulltextWords` and `fulltextItemWords` tables were dropped from zotero.sqlite; the content and note indexes live in a separate database attached as `ftindex`.
-
-Several `Zotero.FullText` methods were removed, including `clearIndex()`, `purgeUnusedWords()`, `indexFromProcessorCache()`, `processUnprocessedContent()`, and the `registerContentProcessor()`/`unregisterContentProcessor()`/`stopContentProcessor()` family (replaced by `registerSyncContentProcessor()` and related methods). If your plugin touches the full-text index, test against the beta and ask on zotero-dev if you're not sure what to use.
+Full-text content search was rewritten on SQLite FTS5. The `fulltextWords` and `fulltextItemWords` tables were dropped from zotero.sqlite; the content and note indexes live in a separate database attached as `ftindex`. Various `Zotero.FullText` methods were removed or replaced.
 
 ## Undo/redo
 
