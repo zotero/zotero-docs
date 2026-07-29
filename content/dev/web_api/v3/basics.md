@@ -43,7 +43,7 @@ Use of an HTTP header is recommended, as it allows use of URLs returned from the
 
 `Authorization: Bearer` is also the authentication mechanism for OAuth 2.0. While Zotero currently supports only OAuth 1.0a, when support for OAuth 2.0 is added, clients will no longer need to extract the API key from the OAuth response and pass it to the API separately.
 
-The [local API](dev/web_api/v3/local_api) does not use authentication for read requests. In Zotero 10, write requests require a local API key, which is unrelated to a zotero.org API key and is granted by the user at runtime; see [Authorizing Writes](dev/web_api/v3/local_api#authorizing_writes).
+The [local API](dev/web_api/v3/local_api) does not use authentication for read requests. Write requests (Zotero 10+) require a local API key, which is unrelated to a zotero.org API key and is granted by the user at runtime; see [Authorizing Writes](dev/web_api/v3/local_api#authorizing_writes).
 
 ## Local API
 
@@ -341,7 +341,7 @@ In addition to making conditional requests, clients downloading data for entire 
 
 See [Syncing](dev/web_api/v3/syncing) for more information on library and object versioning.
 
-Conditional requests work the same way against the [local API](dev/web_api/v3/local_api), but local responses are already inexpensive to produce, so aggressive caching on the client side is less important. The `?since=` parameter is also supported and is the preferred way to fetch only changed objects from a large local library. Note that in Zotero 10, local versions are unrelated to the versions in this API, so clients must partition cached data by server ID. See [Object Versions](dev/web_api/v3/local_api#object_versions).
+Conditional requests work the same way against the [local API](dev/web_api/v3/local_api), but local responses are already inexpensive to produce, so aggressive caching on the client side is less important. The `?since=` parameter is also supported and is the preferred way to fetch only changed objects from a large local library. Note that in Zotero 10+, local versions are unrelated to the versions in this API, so clients must partition cached data by server ID. See [Object Versions](dev/web_api/v3/local_api#object_versions).
 
 ## Rate Limiting
 

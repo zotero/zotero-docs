@@ -8,12 +8,12 @@ The base URL is
 
     http://localhost:23119/api/
 
-Most endpoints documented on the [Basics](dev/web_api/v3/basics), [Write Requests](dev/web_api/v3/write_requests) (in Zotero 10), [File Uploads](dev/web_api/v3/file_upload), and [Full-Text Content](dev/web_api/v3/fulltext_content) pages work identically when accessed under that prefix. The notable differences from the Web API are:
+Most endpoints documented on the [Basics](dev/web_api/v3/basics), [Write Requests](dev/web_api/v3/write_requests) (Zotero 10+), [File Uploads](dev/web_api/v3/file_upload), and [Full-Text Content](dev/web_api/v3/fulltext_content) pages work identically when accessed under that prefix. The notable differences from the Web API are:
 
 -   Only API version 3 is supported, and only one version will ever be supported at a time. If a future version is released and your client needs to work against both old and new copies of Zotero, request `/api/` first and read the `Zotero-API-Version` response header to determine which version the running client speaks before making further requests.
--   Read requests require no authentication. Zotero 10 supports write requests with a local API key, which the user grants through a confirmation dialog. See [Authorizing Writes](#authorizing_writes).
+-   Read requests require no authentication. Write requests (Zotero 10+) require a local API key, which the user grants through a confirmation dialog. See [Authorizing Writes](#authorizing_writes).
 -   Since reads are unauthenticated, applications running locally can read the user's library. Do not forward the port or otherwise expose it externally.
--   In Zotero 10, every response includes a `Zotero-Server-ID` header identifying the Zotero instance, and all object versions are local to that instance, with no relation to Web API versions. See [Server ID](#server_id) and [Object Versions](#object_versions).
+-   In Zotero 10+, every response includes a `Zotero-Server-ID` header identifying the Zotero instance, and all object versions are local to that instance, with no relation to Web API versions. See [Server ID](#server_id) and [Object Versions](#object_versions).
 -   Only data for the locally logged-in user is available. Pass `0` as the user ID or the user's actual numeric ID, which can be found on the [API Keys](/settings/keys) page. Requests for any other user ID return `400`.
 -   Group metadata is limited to what's needed to identify the group; permissions, member lists, and similar details are not included. Group metadata is also read-only, since it's maintained by the server.
 -   Atom is not supported. Requests with `format=atom` or `content=atom` return `501 Not Implemented`.
@@ -26,13 +26,13 @@ The local API also supports a few things the Web API does not:
 
 -   `<userOrGroupPrefix>/searches/<searchKey>/items` returns the items matching a saved search. The Web API exposes search metadata but does not actually execute searches.
 -   `<userOrGroupPrefix>/items/<itemKey>/file` returns a `302` redirect to a `file://` URL for the attachment on disk, and `/file/view` does the same. `/file/view/url` returns the URL as plain text rather than redirecting.
--   In Zotero 10, `POST /api/local/authorize` requests permission to make changes.
+-   In Zotero 10+, `POST /api/local/authorize` requests permission to make changes.
 
 Responses include a `Zotero-Schema-Version` header reflecting the schema version of the local Zotero instance, which may lag behind or run ahead of the version served by the Web API.
 
 ## Server ID
 
-In Zotero 10, every local API response includes a `Zotero-Server-ID` header containing a string that identifies the Zotero instance being talked to:
+In Zotero 10+, every local API response includes a `Zotero-Server-ID` header containing a string that identifies the Zotero instance being talked to:
 
     Zotero-Server-ID: sPMHtLD6HHBd
 
@@ -49,9 +49,9 @@ Clients that store data between runs should partition it by server ID. The Web A
 
 ## Object Versions
 
-In Zotero 10, data object versions returned by the local API are maintained locally, not by the sync server. They're incremented once per library per transaction whenever an object in that library is saved or deleted, whether the change comes from the user, a sync, or a local API write.
+In Zotero 10+, data object versions returned by the local API are maintained locally, not by the sync server. They're incremented once per library per transaction whenever an object in that library is saved or deleted, whether the change comes from the user, a sync, or a local API write.
 
-Local versions in Zotero 10 therefore have **no relation** to Web API versions, and no relation to the local versions reported by any other Zotero instance. This applies everywhere versions appear: the `version` property of object JSON, `Last-Modified-Version` response headers, `format=versions` responses, `?since=` filtering, and the `If-Unmodified-Since-Version` and per-object `version` preconditions used for writes.
+Local versions in Zotero 10+ therefore have **no relation** to Web API versions, and no relation to the local versions reported by any other Zotero instance. This applies everywhere versions appear: the `version` property of object JSON, `Last-Modified-Version` response headers, `format=versions` responses, `?since=` filtering, and the `If-Unmodified-Since-Version` and per-object `version` preconditions used for writes.
 
 Earlier versions of Zotero reported synced versions from the local API, which were `0` for objects that had never been synced and didn't change when an object was modified locally. Local versions are usually much lower than the synced versions those releases returned, so local API clients should discard any stored versions rather than compare them to new ones.
 
@@ -59,7 +59,7 @@ Group metadata is the exception: `<userOrGroupPrefix>/groups` and `/groups/<grou
 
 ## Authorizing Writes
 
-Local API keys (supported in Zotero 10) are unrelated to zotero.org API keys and can't be created in advance. A client asks for one at runtime:
+Local API keys (Zotero 10+) are unrelated to zotero.org API keys and can't be created in advance. A client asks for one at runtime:
 
     POST /api/local/authorize
     Content-Type: application/json
@@ -87,7 +87,7 @@ Keys are stored with the user's profile, and unlike Web API keys, they aren't sc
 
 ## Write Requests
 
-In Zotero 10, `POST`, `PUT`, `PATCH`, and `DELETE` are supported for items, collections, and saved searches. The local API also supports tag deletion, full-text writes, and file uploads. Requests and responses follow the same format as the Web API, described in [Write Requests](dev/web_api/v3/write_requests).
+In Zotero 10+, `POST`, `PUT`, `PATCH`, and `DELETE` are supported for items, collections, and saved searches. The local API also supports tag deletion, full-text writes, and file uploads. Requests and responses follow the same format as the Web API, described in [Write Requests](dev/web_api/v3/write_requests).
 
 `Zotero-Write-Token` is supported, but tokens are cached in memory, so they're forgotten when Zotero restarts.
 
@@ -95,7 +95,7 @@ Changes made through the local API are ordinary local changes. They're visible i
 
 ## File Uploads
 
-In Zotero 10, the three-phase [file upload](dev/web_api/v3/file_upload) flow works locally, with the uploads going to Zotero itself rather than to S3:
+In Zotero 10+, the three-phase [file upload](dev/web_api/v3/file_upload) flow works locally, with the uploads going to Zotero itself rather than to S3:
 
 1.  `POST <userOrGroupPrefix>/items/<itemKey>/file` with `md5`, `filename`, `filesize`, and `mtime` parameters, and an `If-Match` or `If-None-Match` header, exactly as in the Web API. The response contains a `url` pointing at `/api/local/uploads/<uploadKey>` on the local server, along with `uploadKey`, `contentType`, and empty `prefix` and `suffix` strings. If the file on disk already matches the given MD5, the response is `{ "exists": 1 }` and no upload is needed.
 2.  `POST` the file contents to `url`. A successful upload returns `201 Created`. The received bytes must hash to the `md5` provided in the previous step, or the response is `400`. This request doesn't need `Zotero-Server-ID` or an API key, since the upload key authorizes it. Upload keys expire after an hour.
