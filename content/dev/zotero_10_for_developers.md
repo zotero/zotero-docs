@@ -86,7 +86,7 @@ Full-text content search was rewritten on SQLite FTS5. The `fulltextWords` and `
 
 ## Undo/redo
 
-Zotero 10 supports undo/redo for many item operations. To make a user-initiated change from your plugin undoable, pass an action label when saving:
+Zotero 10 supports undo/redo for modifications to existing objects — creating or permanently deleting an object isn't undoable (trashing is, since it just sets the object's `deleted` flag). To make a user-initiated change from your plugin undoable, pass an action label when saving:
 
 ```js
 await item.saveTx({
@@ -97,7 +97,7 @@ await item.saveTx({
 
 `undoAction` is a Fluent message ID providing the "Undo/Redo <action>" menu labels. `undoActionArgs` is only needed when the message takes variables — most of Zotero's built-in `undo-action-*` strings vary by `$count`, as above, but a string without variables needs no args. To use a string from your plugin's FTL file, add it to Zotero's string bundle with `Zotero.ftl.addResourceIds(['my-plugin.ftl'])` (and remove it with `removeResourceIds()` on shutdown) — undo labels are formatted via `Zotero.ftl`, not window l10n.
 
-If you save multiple objects in your own transaction, call `Zotero.UndoHistory.stageAction(action, args)` inside the transaction instead, and they'll be grouped into a single undo step. Saves without an action label aren't added to the undo stack.
+If you save multiple objects in your own transaction, call `Zotero.UndoHistory.stageAction(action, args)` inside the transaction instead: each save inside the transaction records its changes automatically; `stageAction()` adds the label that makes them land on the undo stack as a single step at commit. Saves without an action label aren't added to the undo stack.
 
 ## Local HTTP server and local API
 
