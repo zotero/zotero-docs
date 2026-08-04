@@ -152,3 +152,4 @@ Plugin FTL registration was reworked. All plugins' strings are consolidated into
 - `Zotero.HTTP.download()` was rewritten to stream via `fetch()` and now returns a `Response` object.
 - Plugin `prefs.js` files are now loaded with the script cache disabled, so changes to default prefs take effect after a plugin update rather than requiring an app restart.
 - `Zotero.MenuManager` now correctly removes a plugin's menu DOM elements when the plugin shuts down.
+- `node.ownerGlobal` was removed. Use `node.documentGlobal` instead.
