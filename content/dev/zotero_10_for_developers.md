@@ -6,6 +6,8 @@ Zotero 10 uses the same Firefox 140 ESR base as Zotero 9, so there are no change
 
 If you have questions about any of these changes, please post to [zotero-dev](https://groups.google.com/g/zotero-dev).
 
+For previous changes, see [Zotero 9 for Developers](/support/dev/zotero_9_for_developers).
+
 ## Updating plugin compatibility
 
 After confirming that your plugin is compatible, update `strict_max_version` in your manifest.json to `10.0.*`. If no changes are required, you can simply update `strict_max_version` in your plugin's update manifest without releasing a new version.
