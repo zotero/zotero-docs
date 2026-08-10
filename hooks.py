@@ -29,6 +29,7 @@ from markdown.extensions.toc import slugify, unique
 
 URL_PREFIX = '/support/'
 TOPIC_RE = re.compile(r'<!--\s*dokuwiki-plugin:\s*topic>([^>]+?)\s*-->')
+INCLUDE_RE = re.compile(r'<!--\s*include:\s*([\w./-]+?)\s*-->')
 HEADING_RE = re.compile(r'^#{1,6}\s+(.+?)\s*$', re.MULTILINE)
 # Matches an opening <a> tag with an href into our docs namespace. Separates
 # the URL path from any `#anchor` so we can check each independently.
@@ -183,6 +184,33 @@ def _read_frontmatter(path):
     return meta, content[end + 5:]
 
 
+
+def _expand_includes(body, content_root, _depth=0, _seen=frozenset()):
+    """Inline `<!-- include: name -->` with the body of
+    content/_partials/<name>.md (any frontmatter stripped). Recurses so partials may include
+    partials; a name already being expanded or a depth past _MAX_INCLUDE_DEPTH
+    leaves the token in place, which breaks cycles. Runs in both on_files and
+    on_page_markdown so anchor extraction and the final render see the same
+    assembled page."""
+    _MAX_INCLUDE_DEPTH = 5
+    if _depth >= _MAX_INCLUDE_DEPTH:
+        return body
+
+    def repl(m):
+        name = m.group(1)
+        if name.endswith('.md'):
+            name = name[:-3]
+        if name in _seen:
+            return m.group(0)
+        part = content_root / '_partials' / (name + '.md')
+        if not part.is_file():
+            return m.group(0)
+        _meta, text = _read_frontmatter(part)
+        return _expand_includes(text, content_root, _depth + 1, _seen | {name})
+
+    return INCLUDE_RE.sub(repl, body)
+
+
 def _page_title(body, fallback):
     m = HEADING_RE.search(body)
     return m.group(1) if m else fallback
@@ -271,6 +299,7 @@ def on_files(files, config):
     _tag_index = {}
     _valid_urls = set()
     _page_anchors = {}
+    content_root = Path(config['docs_dir'])
     for f in files:
         if not f.is_documentation_page():
             continue
@@ -280,6 +309,10 @@ def on_files(files, config):
         url_key = (URL_PREFIX + f.url).rstrip('/')
         _valid_urls.add(url_key)
         meta, body = _read_frontmatter(f.abs_src_path)
+        # Inline includes before deriving anchors so a page that pulls in a
+        # partial is credited with the partial's heading IDs — keeps the
+        # missing-link detector and a future `--strict` build honest.
+        body = _expand_includes(body, content_root)
         _page_anchors[url_key] = _extract_anchors(body)
         tags = meta.get('tags') or []
         if isinstance(tags, list) and tags:
@@ -427,10 +460,16 @@ def _slug_to_title(slug):
 
 
 def on_page_markdown(markdown, page, config, files):
+    content_root = Path(config['docs_dir'])
+
+    # Inline `<!-- include: name -->` partials before anything else, so H1
+    # injection, topic expansion, and link resolution all operate on the
+    # fully assembled page.
+    body = _expand_includes(markdown, content_root)
+
     # Auto-inject an H1 derived from the file slug when the page has none.
     # `<namespace>/index.md` uses the namespace name (e.g. dev/index.md →
     # "Dev") since the literal slug "index" wouldn't be meaningful.
-    body = markdown
     fm_end = 0
     if body.startswith('---\n'):
         m = body.find('\n---\n', 4)
@@ -459,7 +498,6 @@ def on_page_markdown(markdown, page, config, files):
 
     # Resolve docs-internal links: `[X](kb/foo)` → `[X](../kb/foo.md)`
     page_dir = posixpath.dirname(page.file.src_path)
-    content_root = Path(config['docs_dir'])
 
     def _resolve(m):
         rewritten = _resolve_internal_link(m.group(1), m.group(2), page_dir, content_root)
