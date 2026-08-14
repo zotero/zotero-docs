@@ -468,6 +468,15 @@ def on_page_markdown(markdown, page, config, files):
     return _LINK_RE.sub(_resolve, body)
 
 
+def _wrap_fragment(output, title):
+    return (
+        '<!DOCTYPE html><html lang="en"><head>'
+        '<meta charset="utf-8">'
+        f'<title>{title.replace(chr(34), "&quot;")}</title>'
+        '</head><body>' + output + '</body></html>'
+    )
+
+
 def on_post_page(output, page, config):
     """In `mkdocs serve`, wrap the fragment in a minimal HTML document so
     the browser knows it's UTF-8. The dev server returns `text/html` with
@@ -476,10 +485,12 @@ def on_post_page(output, page, config):
     and mangles characters like the search-box ellipsis."""
     if not _serving:
         return output
-    title = (page.title or 'Zotero Documentation').replace('"', '&quot;')
-    return (
-        '<!DOCTYPE html><html lang="en"><head>'
-        '<meta charset="utf-8">'
-        f'<title>{title}</title>'
-        '</head><body>' + output + '</body></html>'
-    )
+    return _wrap_fragment(output, page.title or 'Zotero Documentation')
+
+
+def on_post_template(output, template_name, config):
+    """Same UTF-8 wrapper as `on_post_page`, for static templates —
+    i.e. 404.html, which the dev server returns for unknown paths."""
+    if not _serving or not template_name.endswith('.html'):
+        return output
+    return _wrap_fragment(output, 'Page Not Found')

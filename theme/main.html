@@ -766,11 +766,12 @@ document.addEventListener('DOMContentLoaded', function() {
     </ul>
   </nav>
   <article class="zotero-docs-content">
-    {{ page.content }}
+    {% block content %}{{ page.content }}{% endblock %}
   </article>
   {# Right-column rail: page TOC (hidden if the page has only a single
      heading, since the entry would just point back to the page title) and
      the Edit-on-GitHub link below it. #}
+  {% block rail %}
   {% set toc_list = page.toc|list %}
   {% set has_toc = toc_list|length > 1 or (toc_list and toc_list[0].children) %}
   {% if page.edit_url or has_toc %}
@@ -795,4 +796,5 @@ document.addEventListener('DOMContentLoaded', function() {
       {% endif %}
     </aside>
   {% endif %}
+  {% endblock %}
 </div>

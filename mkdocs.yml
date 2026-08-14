@@ -18,6 +18,11 @@ validation:
 theme:
   name: null
   custom_dir: theme
+  # Rendered outside the page loop, to build/404.html. Has to live here
+  # rather than in theme/mkdocs_theme.yml, which MkDocs only reads for
+  # named themes.
+  static_templates:
+    - 404.html
 
 # Suppress the JS/CSS that MkDocs injects by default — the wrapping site
 # chrome supplies its own.

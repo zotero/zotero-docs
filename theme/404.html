@@ -1,0 +1,84 @@
+{#
+  Error page fragment, built to `404.html` (see `static_templates` in
+  mkdocs_theme.yml) for the wrapper to serve on an unresolved /support/ URL.
+
+  Inherits the layout, styles, sidebar nav, and search from main.html; only
+  the article body and the right-hand rail differ. `page` is None in a static
+  template, so both of those blocks must avoid touching it.
+#}
+{% extends "main.html" %}
+
+{% block content %}
+<h1>Page Not Found</h1>
+{# Filled in by the script below, which is the only thing that knows the
+   requested path. Hidden until then so it doesn't render half a sentence. #}
+<p id="zotero-docs-404-path" style="display: none">No documentation page at
+<code></code>.</p>
+<p>The page may have been moved or renamed, or the link that brought you here
+may be out of date.</p>
+<p>Try the search box in the sidebar, or start from the
+<a href="/support/">documentation home page</a>.</p>
+{% endblock %}
+
+{% block rail %}
+{#
+  A page that doesn't exist has no `edit` URL, but GitHub's new-file endpoint
+  (`/new/<branch>?filename=…&value=…`) opens the editor with the path and body
+  prefilled, and offers to fork for anyone without push access. The requested
+  path isn't known at build time — this is one static fragment served for every
+  miss — so the href is assembled client-side from `location.pathname`.
+#}
+{% set edit_parts = config.edit_uri.strip('/').split('/') %}
+{% set branch = edit_parts[1] %}
+{% set content_prefix = edit_parts[2:]|join('/') %}
+<aside class="zotero-docs-toc">
+  <div class="zotero-docs-page-meta">
+    <a class="zotero-docs-edit" id="zotero-docs-create" href="{{ config.repo_url }}/new/{{ branch }}" style="display: none">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064L11.189 6.25Zm2.95-2.12-1.086-1.086a.25.25 0 0 0-.354 0l-1.012 1.012 1.44 1.44 1.012-1.013a.25.25 0 0 0 0-.353Z"/></svg>Create this page on GitHub
+    </a>
+  </div>
+</aside>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var URL_PREFIX = '/support/';
+  var CONTENT_PREFIX = '{{ content_prefix }}';
+  var link = document.getElementById('zotero-docs-create');
+  var path = window.location.pathname;
+  if (path.indexOf(URL_PREFIX) !== 0) return;
+
+  var pathEl = document.getElementById('zotero-docs-404-path');
+  if (pathEl) {
+    pathEl.querySelector('code').textContent = path;
+    pathEl.style.display = '';
+  }
+  if (!link) return;
+
+  // `/support/foo/bar/` -> `foo/bar`. With `use_directory_urls`, a URL maps
+  // to either `foo/bar.md` or `foo/bar/index.md`; assume the former, which
+  // is what nearly every page in the corpus uses.
+  var slug = path.slice(URL_PREFIX.length).replace(/^\/+|\/+$/g, '');
+  // Only offer creation for something that looks like a real page slug, so
+  // stray junk URLs don't invite a file named after them.
+  if (!/^[a-z0-9][a-z0-9._-]*(\/[a-z0-9][a-z0-9._-]*){0,3}$/.test(slug)
+      || slug.indexOf('..') !== -1) {
+    return;
+  }
+
+  // Prefill an H1 derived from the slug, matching the title hooks.py would
+  // generate for a page that shipped without one.
+  var LOWER = ['a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'from', 'in',
+               'nor', 'of', 'on', 'or', 'so', 'the', 'to', 'up', 'via',
+               'with', 'yet'];
+  var title = slug.split('/').pop().split('_').map(function(word, i) {
+    var lower = word.toLowerCase();
+    if (i > 0 && LOWER.indexOf(lower) !== -1) return lower;
+    return lower.charAt(0).toUpperCase() + lower.slice(1);
+  }).join(' ');
+
+  var filename = (CONTENT_PREFIX ? CONTENT_PREFIX + '/' : '') + slug + '.md';
+  link.href += '?filename=' + encodeURIComponent(filename) +
+               '&value=' + encodeURIComponent('# ' + title + '\n\n');
+  link.style.display = '';
+});
+</script>
+{% endblock %}
