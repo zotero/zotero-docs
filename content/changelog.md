@@ -81,13 +81,11 @@ Changes in released versions of Zotero 10.0 are documented on this page. To foll
 
 ### Developer-specific changes/fixes
 
-For Zotero core and plugin development, see [Zotero 10 for Developers](https://www.zotero.org/support/dev/zotero_10_for_developers).
-
-Also:
-
-- Local API: Support for [write requests](https://www.zotero.org/support/dev/web_api/v3/local_api#write_requests)
+- **[Local API write support](https://www.zotero.org/support/dev/web_api/v3/local_api#write_requests)**
 - Instantaneous rebuilding after code changes
 - Fixed profiler (Performance tab) in developer tools
+
+For plugin-related changes, see [Zotero 10 for Developers](https://www.zotero.org/support/dev/zotero_10_for_developers).
 
 ## Older Changes
 
