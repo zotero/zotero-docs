@@ -56,7 +56,6 @@ Changes in released versions of Zotero 10.0 are documented on this page. To foll
     - Improved database write performance
     - Automatically compact database to reduce disk-space usage
     - Drop versioned database backups to reduce disk-space usage and force a regular backup before all database upgrades
-    - Fixed opening the database on network filesystems (e.g., SMB) on macOS/Linux
 - [Mac] Support Word plugin installation on macOS 27 Golden Gate
 - Fixed downloading of files over 2 GB (since Zotero 8)
 - Changed Read Aloud keyboard shortcut to Cmd/Ctrl-Shift-L/R
