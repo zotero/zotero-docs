@@ -26,7 +26,7 @@ These `dev` channel builds will stop updating once a beta is available with thes
 
 ## Updating plugin compatibility
 
-Do not update your plugin to declare compatibility with Zotero 11 at this time. We'll make an announcement on the [dev list](https://groups.google.com/g/zotero-dev) when Zotero 11 is feature-frozen and it's time to test for compatibility.
+**Do not** update your plugin to declare compatibility with Zotero 11 at this time. We'll make an announcement on the [dev list](https://groups.google.com/g/zotero-dev) when Zotero 11 is feature-frozen and it's time to test for compatibility.
 
 ## Platform Changes
 
