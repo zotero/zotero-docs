@@ -6,9 +6,6 @@ tags:
 
 # Troubleshooting Problems Saving to Zotero
 
-<p style="color: red; font-weight: bold">July 2025: If you're a Firefox user experiencing problems saving on many sites, make
-sure you're running Zotero Connector 5.0.169 or later. If you still have 5.0.151, click the application menu in the top-right corner of Firefox and accept the updated permission or reinstall the Zotero Connector from the <a href="https://www.zotero.org/download/">download page</a>.</p>
-
 When you're unable to save high-quality metadata from a particular website, most likely either the page isn't supported by an existing [Zotero translator](translators) or the page layout recently changed, breaking Zotero's ability to recognize data. On some sites, most notably Google Scholar, you may also be running into [site access limits](kb/site_access_limits).
 
 If the problem occurs across multiple sites, there may be a problem with your installation, and you should try these steps:
