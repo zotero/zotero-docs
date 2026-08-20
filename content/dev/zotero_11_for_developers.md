@@ -28,6 +28,8 @@ These `dev` channel builds will stop updating once a beta is available with thes
 
 **Do not** update your plugin to declare compatibility with Zotero 11 at this time. We'll make an announcement on the [dev list](https://groups.google.com/g/zotero-dev) when Zotero 11 is feature-frozen and it's time to test for compatibility.
 
+Note that beta, dev, and source builds no longer enforce `strict_max_version`, either at install time or for updates, so you can test a plugin with a lower max version on one of thoes builds without modifying it. Stable builds still enforce it.
+
 ## Platform Changes
 
 ### Mozilla Platform
