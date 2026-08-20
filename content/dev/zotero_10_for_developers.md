@@ -1,6 +1,6 @@
 # Zotero 10 for Developers
 
-Zotero 10, currently in [beta](https://www.zotero.org/support/beta_builds), includes changes to internal APIs and data storage that may require updates to your plugin. This page covers the changes most likely to affect plugins. New user-facing features are covered in the beta announcements in the [Zotero Forums](https://forums.zotero.org/) and aren't repeated here.
+[Zotero 10](https://www.zotero.org/blog/zotero-10/) includes changes to internal APIs and data storage that may require updates to your plugin. This page covers the changes most likely to affect plugins. New user-facing features are covered in the linked blog post and aren't repeated here.
 
 Zotero 10 uses the same Firefox 140 ESR base as Zotero 9, so there are no changes to the Mozilla platform itself.
 
@@ -11,8 +11,6 @@ For previous changes, see [Zotero 9 for Developers](/support/dev/zotero_9_for_de
 ## Updating plugin compatibility
 
 After confirming that your plugin is compatible, update `strict_max_version` in your manifest.json to `10.0.*`. If no changes are required, you can simply update `strict_max_version` in your plugin's update manifest without releasing a new version.
-
-Note that beta and source builds no longer enforce `strict_max_version`, either at install time or for updates, so you can test a plugin with a lower max version on the Zotero 10 beta without modifying it. Stable builds still enforce it.
 
 ## Multiple selection in the collections list
 
