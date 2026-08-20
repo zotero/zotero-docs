@@ -10,7 +10,7 @@ tags:
 
 The Zotero Connector for Safari is bundled with the Zotero desktop app. (Unlike other browsers, Safari does not allow direct installation of browser extensions.) After opening Zotero for the first time, you can enable the Zotero Connector from the Extensions pane of the Safari settings ("Safari" menu → "Settings" → "Extensions", **not** "Safari" menu → "Safari Extensions…").
 
-The Zotero Connector for Safari requires macOS 11 Big Sur or later.
+The Zotero Connector for Safari requires macOS 11 Big Sur or later, with macOS 13 Ventura or later required for full functionality.
 
 Using an iPhone or iPad? You can save to the [Zotero iOS app](https://apps.apple.com/us/app/zotero/id1513554812) using the Share sheet in Safari and other browsers.
 
@@ -54,13 +54,11 @@ This option avoids redownloading the app.
 
 Due to technical limitations of the Safari extension framework, some features available in Firefox, Chrome, and Edge aren't available in Safari:
 
--   Automatic proxy redirection
 -   Automatic RIS/BibTeX import
--   Automatic CSL installation
+-   Automatic CSL installation from sites other than the [Zotero Styles Page](https://www.zotero.org/styles), GitHub, and Gitee.
 
 Other differences:
 
--   Gated PDFs may not be saved on some sites (e.g., ScienceDirect)
 -   It's not possible to right-click on the toolbar button to access secondary translators. Instead, right-click on the page itself.
 
 
