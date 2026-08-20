@@ -38,7 +38,7 @@ The following list includes nearly all Mozilla changes that affected Zotero code
 
 Many of these changes fail silently rather than throwing, so a plugin that appears to load fine may still have dead handlers or elements stuck in the wrong state.
 
-You can use `Zotero.platformMajorVersion` to test what Firefox version the current Zotero build is based on.
+You can use `Zotero.platformMajorVersion` in your code to test what Firefox version the current Zotero build is based on.
 
 -   `hidden`, `collapsed`, `selected`, `disabled`, and `checked` became boolean XUL attributes matched on presence alone ([bug 1979014](https://bugzilla.mozilla.org/show_bug.cgi?id=1979014), [bug 2008041](https://bugzilla.mozilla.org/show_bug.cgi?id=2008041)) — the UA sheet's `[hidden="true"]` is now `[hidden]`, and any value, `"false"` included, means true ([example](https://github.com/zotero/zotero/commit/f245f5c2b26dbf5c313073e4c9a3040b5a2cf807), [example](https://github.com/zotero/zotero/commit/567cc2d43abe04815a40a32f592d5dedab4be64e), [example](https://github.com/zotero/zotero/commit/6fbe5e4135eb836c36ee18daa5fcf5ac8ac5e0c2))
     -   `setAttribute()` stringifies its value, so `setAttribute('hidden', false)` sets `hidden="false"` and hides the element — use `toggleAttribute()` or the boolean `hidden`/`disabled`/`checked` properties
