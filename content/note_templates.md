@@ -18,17 +18,17 @@ If you prefer to have the highlight text in a blockquote, it's a simple change:
 
 Templates also support conditionals. Rather than combining the citation and comment in a single paragraph as in the previous example, you might want to create a separate paragraph for the comment, but only if a comment actually exists. You can test whether a variable is set with a simple `if`:
 
-    <blockquote>{{highlight}}</blockquote><p>{{citation}}</p>{{:if comment}}<p>{{comment}}</p>{{:endif}}
+    <blockquote>{{highlight}}</blockquote><p>{{citation}}</p>{{if comment}}<p>{{comment}}</p>{{endif}}
 
 Conditionals can also be used to test for specific values. Here, text highlighted in red becomes a header without quotation marks, text highlighted in blue becomes a blockquote, and all other highlights use a single paragraph:
 
-    {{:if color == '#ff6666'}}
+    {{if color == '#ff6666'}}
         <h2>{{highlight quotes='false'}}</h2>
-    {{:elseif color == '#2ea8e5'}}
-        {{:if comment}}<p>{{comment}}:</p>{{:endif}}<blockquote>{{highlight}}</blockquote><p>{{citation}}</p>
-    {{:else}}
-        <p>{{highlight}} {{citation}} {{comment}}{{:if tags}} #{{tags join=' #'}}{{:endif}}</p>
-    {{:endif}}
+    {{elseif color == '#2ea8e5'}}
+        {{if comment}}<p>{{comment}}:</p>{{endif}}<blockquote>{{highlight}}</blockquote><p>{{citation}}</p>
+    {{else}}
+        <p>{{highlight}} {{citation}} {{comment}}{{if tags}} #{{tags join=' #'}}{{endif}}</p>
+    {{endif}}
 
 ### Variables
 
