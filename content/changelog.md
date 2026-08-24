@@ -2,6 +2,17 @@
 
 Changes in released versions of Zotero 10.0 are documented on this page. To follow development, see the [commit log on GitHub](https://github.com/zotero/zotero/commits/). More recent changes may be available in a [beta build](beta_builds).
 
+## Changes in 10.0.1 (August 24, 2026)
+
+- Fixed database access on network filesystems on macOS and Linux
+- Fixed bug that could result in Zotero crashing after being open for a while with some plugins installed
+- Fixed potential error requiring restart while editing note
+- Fixed intermittent stuck "Loading items…" at startup
+- Don't prompt to save an unchanged saved search
+- Fixed embedded PDF annotations sometimes not appearing after opening reader
+- Fixed mangled full-text index statistics after searching in settings
+- Fixed main window being brought to front when using CSL Preview window
+
 ## Changes in 10.0 (August 17, 2026)
 
 **See the [Zotero 10 announcement](/blog/zotero-10) for more details.**
