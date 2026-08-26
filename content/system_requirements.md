@@ -16,7 +16,7 @@ tags:
 -   Chrome (current Stable or Extended Stable version)
 -   Edge (current Stable or Extended Stable version)
 -   Firefox 115 or later
--   Safari 16.6+ on macOS 11 Big Sur or later ([details](kb/zotero_connector_and_safari))
+-   Safari 18+ on macOS 13 Ventura or later; macOS 11 and 12 will use an older version of the Connector with fewer features
 
 ## Word Processor Plugins
 
