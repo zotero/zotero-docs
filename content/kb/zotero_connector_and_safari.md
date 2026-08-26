@@ -10,7 +10,7 @@ tags:
 
 The Zotero Connector for Safari is bundled with the Zotero desktop app. (Unlike other browsers, Safari does not allow direct installation of browser extensions.) After opening Zotero for the first time, you can enable the Zotero Connector from the Extensions pane of the Safari settings ("Safari" menu → "Settings" → "Extensions", **not** "Safari" menu → "Safari Extensions…").
 
-The Zotero Connector for Safari requires macOS 11 Big Sur or later, with macOS 13 Ventura or later required for full functionality.
+The Zotero Connector for Safari requires Safari 18+ on macOS 13 Ventura or later. macOS 11 and 12 will use an older version of the Connector that won't be receiving further updates.
 
 Using an iPhone or iPad? You can save to the [Zotero iOS app](https://apps.apple.com/us/app/zotero/id1513554812) using the Share sheet in Safari and other browsers.
 
@@ -20,7 +20,9 @@ Using an iPhone or iPad? You can save to the [Zotero iOS app](https://apps.apple
 
 ## Extension not showing up? Save button missing or flickering?
 
-A macOS bug can cause the Zotero Connector to disappear from Safari or stop working after the Zotero app is updated.
+First, make sure you have the latest version of Safari.
+
+If you're still having trouble, it may be due to a macOS bug that can cause the Zotero Connector to disappear from Safari or stop working after the Zotero app is updated.
 
 If you find that the extension isn't listed in the Safari settings or the toolbar button isn't appearing or working properly, you can likely fix it using one of the options below. Your data will not be affected.
 
