@@ -117,7 +117,7 @@ For serious problems that prevent you from using the reporting wizard — such a
 ##### macOS
 
 1.  Open Terminal via Spotlight or from /Applications/Utilities.
-2.  In the terminal window that opens, paste the following and press Return. `/Applications/Zotero.app/Contents/MacOS/zotero -ZoteroDebug`
+2.  In the terminal window that opens, paste the following and press Return. `/Applications/Zotero.app/Contents/MacOS/zotero -ZoteroDebug -safe-mode`
 
 If you can't select the logging window, you can press Cmd-\` (backtick, above Tab) to cycle between windows until it's selected.
 
@@ -126,12 +126,12 @@ If you can't select the logging window, you can press Cmd-\` (backtick, above Ta
 1.  Press Windows-R or search for "run" to open the Run dialog.
 2.  Click Browse and locate the Zotero application directory. This is typically "C:\\Program Files\\Zotero\\".
 3.  Select the "zotero.exe" file and click Open.
-4.  The complete path to the "zotero.exe" file will be displayed in the text box. Add " -ZoteroDebug" to the end, after any closing quotes, with a space before the hyphen. For example: `"C:\Program Files\Zotero\zotero.exe" -ZoteroDebug`
+4.  The complete path to the "zotero.exe" file will be displayed in the text box. Add " -ZoteroDebug -safe-mode" to the end, after any closing quotes, with a space before the hyphen. For example: `"C:\Program Files\Zotero\zotero.exe" -ZoteroDebug -safe-mode`
 5.  Click OK.
 
 ##### Linux
 
--   From a terminal window, run `./zotero -ZoteroDebug` within the Zotero program directory.
+-   From a terminal window, run `./zotero -ZoteroDebug -safe-mode` within the Zotero program directory.
 
   
 3a. If you used "Restart with Logging Enabled…", you should be able to return to the Help menu, submit the output, and copy the given Debug ID to your forums post.
