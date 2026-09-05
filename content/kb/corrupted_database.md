@@ -18,6 +18,6 @@ If your data is all in your [web library](/mylibrary), you can simply sync to pu
 
 If your data directory was in cloud storage or you have a local backup, you can try to restore from an earlier version of zotero.sqlite, including one of the [automatic backups](zotero_data#restoring_from_the_last_automatic_backup) in your Zotero data directory, by closing Zotero, moving the current zotero.sqlite out of the way, and copying the backup file into place as zotero.sqlite. After restoring from a backup and starting Zotero, check the database integrity from the Advanced → Files and Folders pane of the Zotero preferences.
 
-If you don't have a backup, or the backups are corrupted as well, you can try to fix the damage with the [Zotero Database Repair Tool](https://www.zotero.org/utils/dbfix/manual).
+If you don't have a backup, or the backups are corrupted as well, you can try to fix the damage with the [Zotero Database Repair Tool](https://www.zotero.org/utils/dbfix/).
 
 
