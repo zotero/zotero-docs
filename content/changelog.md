@@ -2,6 +2,12 @@
 
 Changes in released versions of Zotero 10.0 are documented on this page. To follow development, see the [commit log on GitHub](https://github.com/zotero/zotero/commits/). More recent changes may be available in a [beta build](beta_builds).
 
+## Changes in 10.0.4 (September 22, 2026)
+
+*Zotero for Mac only*
+
+- Restored old Zotero Connector for Safari for macOS 11 Big Sur and macOS 12 Monterey
+
 ## Changes in 10.0.3 (September 17, 2026)
 
 - [Windows] Fixed dragging file attachments to and from parent items (since 10.0.2)
