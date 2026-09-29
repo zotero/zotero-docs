@@ -16,6 +16,10 @@
 
 <!-- dokuwiki-plugin: topic>kb +sync&nouser&nodate -->
 
+## Account
+
+<!-- dokuwiki-plugin: topic>kb +account&nouser&nodate -->
+
 ## PDF Reader and Note Editor
 
 <!-- dokuwiki-plugin: topic>kb +pdf_reader&nouser&nodate -->
