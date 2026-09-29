@@ -17,8 +17,9 @@ Note that, if you rely on manual installation, you may run into problems later d
         -   In most cases, the Startup folder path should be the default location of `%AppData%\Microsoft\Word\STARTUP`. The path should not include "Zotero" in any way, and if it does you previously configured it incorrectly. If that's the case, you should reset the path to the default location.
     3.  Select the Startup folder path and click Modify, click in the whitespace to the right of the path in the location bar at the top of the window, copy the complete path to the clipboard with Ctrl-C, and then **click Cancel** to close the dialog without making changes.
 4.  Open a new File Explorer window and paste the Startup folder path into the address bar. You should now have two folders open: the "install" folder containing Zotero.dotm and the Word startup folder.
-5.  Copy the Zotero.dotm file from "install" to your Word Startup folder. (Be sure to copy the file rather than moving it. If dragging, hold down Ctrl.)
-6.   Restart Word to begin using the plugin.
+5.  Close Word.
+6.  Copy the Zotero.dotm file from "install" to your Word Startup folder. (Be sure to copy the file rather than moving it. If dragging, hold down Ctrl.)
+7.   Restart Word to begin using the plugin.
 
 ## Word for Mac
 
