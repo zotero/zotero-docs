@@ -2,6 +2,15 @@
 
 Changes in released versions of Zotero 10.0 are documented on this page. To follow development, see the [commit log on GitHub](https://github.com/zotero/zotero/commits/). More recent changes may be available in a [beta build](beta_builds).
 
+## Changes in 10.0.5 (September 30, 2026)
+
+- Fixed potential errors in large databases after Zotero 10 update
+- Fixed attachment not being placed under new parent item after ISBN-based document recognition
+- [Mac] Temporarily disable local voices on macOS due to loud audio pop after each sentence
+- Don't match an item by a trashed child item in a search
+- Fixed missing action buttons in RTF Scan's Verify Cited Items table
+- [Developer] Local API: Fixed object writes with API-client-supplied keys
+
 ## Changes in 10.0.4 (September 22, 2026)
 
 *Zotero for Mac only*
