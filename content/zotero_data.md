@@ -50,9 +50,14 @@ The "Show Data Directory" button will always reveal the data directory currently
 
 The most important file in the data directory is the `zotero.sqlite` file, which is the database containing the majority of your data: item metadata, notes, tags, etc. When Zotero starts up, it reads the `zotero.sqlite` file in the active data directory.
 
-The directory also contains a `storage` folder with 8-character subfolders (e.g., "N7SMB24A") containing all of your file attachments, such as PDFs, web snapshots, audio files, or any other files you have imported. (Files that are [linked](attaching_files) are not copied into this subfolder.)
+The directory also contains a `storage` folder with 8-character subfolders (e.g., `N7SMB24A`) containing all of your file attachments, such as PDFs, web snapshots, audio files, or any other files you have imported. (Files that are [linked](attaching_files) are not copied into this subfolder.)
 
-Your data directory will likely contain several other files and folders. These can include `zotero.sqlite.bak` (an automatic backup of `zotero.sqlite`, which is updated periodically if the existing `zotero.sqlite.bak` file hasn't been updated in the last 12 hours) and `zotero.sqlite.[number].bak` files (automatic backups of `zotero.sqlite` that are created during certain Zotero updates), as well as folders such as `locate`, `logs`, `pipes`, `styles`, and `translators` that are created automatically at Zotero startup.
+Your data directory will likely contain several other files and folders:
+
+  - `zotero.sqlite-wal` and `zotero.sqlite-shm` — temporary database files while Zotero is open. `zotero.sqlite-wal` is normally zeroed when Zotero closes. If Zotero doesn't shut down cleanly, `zotero.sqlite-wal` may contain recent changes that Zotero will apply at the next startup, so you shouldn't delete it, and you should keep it with zotero.sqlite when copying the database elsewhere.
+  - `zotero.sqlite.bak` and `zotero.sqlite.1.bak` — automatic backups of `zotero.sqlite`, made at most once a day by default. On most Mac systems, backups are cloned files (APFS copy-on-write) that don't take up additional disk space except where the main database has changed.
+  - `fulltext.sqlite` — indexes of full-text content (attachments, notes, etc.) for faster searching. This file isn't backed up, because it can be recreated automatically if necessary.
+  - Folders such as `locate`, `logs`, `pipes`, `styles`, and `translators` that are created automatically at Zotero startup
 
 **Warning**: Before you copy, delete, or move any of these files, be sure that Zotero is closed. Failure to do so before moving these files can damage your data.
 
