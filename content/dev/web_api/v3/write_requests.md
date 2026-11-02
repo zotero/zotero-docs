@@ -441,6 +441,162 @@ Up to 50 tags can be deleted in a single request.
     204 No Content
     Last-Modified-Version: <library version>
 
+## Setting Requests
+
+Synced settings are library-level values that Zotero clients keep in sync, such as colored tags and the last-read position in attachments. Unlike other objects, settings are identified by name rather than by an object key, and their JSON consists only of a `value` and a `version`:
+
+    GET <userOrGroupPrefix>/settings
+
+    200 OK
+    Content-Type: application/json
+    Last-Modified-Version: <library version>
+
+    {
+      "tagColors": {
+        "value": [
+          {
+            "name": "Important",
+            "color": "#FF6666"
+          }
+        ],
+        "version": 1234
+      },
+      "lastPageIndex_u_ABCD2345": {
+        "value": 12,
+        "version": 1240
+      }
+    }
+
+`GET <userOrGroupPrefix>/settings/<settingKey>` returns a single setting's `value` and `version`, with the setting's version in `Last-Modified-Version`, or `404 Not Found` if the setting doesn't exist. The `since` parameter and the `If-Modified-Since-Version` header work as they do for other objects (see [Syncing](dev/web_api/v3/syncing#version_numbers)).
+
+### Available Settings
+
+Only the following settings can be written. Writing any other setting returns `400 Bad Request`.
+
+| Setting                                         | Value                                                                                                                                                                                                 |
+|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `tagColors`                                     | Non-empty array of `{ "name": "<tag>", "color": "<color>" }` objects, in display order                                                                                                                |
+| `feeds`                                         | Object containing the user's feeds, keyed by feed URL                                                                                                                                                 |
+| `lastPageIndex_u_<itemKey>`                     | Last position in an attachment in the user's library: an integer page index, a string location (e.g., an EPUB CFI), or a percentage between 0 and 100 with at most one decimal place (for snapshots) |
+| `lastPageIndex_g<groupID>_<itemKey>`            | Last position in an attachment in a group library, in the same format                                                                                                                                |
+| `lastRead_g<groupID>_<itemKey>`                 | Integer timestamp of when the user last opened an attachment in a group library                                                                                                                       |
+| `lastReadAloudPosition_u_<itemKey>`             | Object containing the last Read Aloud position in an attachment in the user's library                                                                                                                |
+| `lastReadAloudPosition_g<groupID>_<itemKey>`    | Object containing the last Read Aloud position in an attachment in a group library                                                                                                                   |
+| `attachmentRenameTemplate`                      | Non-empty string containing the template used to rename attachment files                                                                                                                             |
+| `autoRenameFiles`                               | Boolean indicating whether attachment files are renamed automatically                                                                                                                                |
+| `autoRenameFilesFileTypes`                      | Non-empty string containing a comma-separated list of the MIME types of files that are renamed automatically (e.g., `application/pdf,application/epub+zip`)                                          |
+| `readerCustomThemes`                            | Non-empty array of custom reader themes                                                                                                                                                              |
+
+Values can be at most 30,000 characters long (as serialized JSON for non-string values). To clear a setting, delete it; don't write an empty value.
+
+`lastPageIndex_*` and `lastRead_*` settings are stored in the user's library, even for attachments in group libraries, and are rejected with `400` in group libraries.
+
+In group libraries, `attachmentRenameTemplate`, `autoRenameFiles`, and `autoRenameFilesFileTypes` can only be changed by group owners and admins. Other group members receive `403 Forbidden` when writing or deleting them.
+
+### Creating or Updating a Setting
+
+    PUT <userOrGroupPrefix>/settings/<settingKey>
+    Content-Type: application/json
+    If-Unmodified-Since-Version: <setting version>
+
+    {
+      "value": [
+        {
+          "name": "Important",
+          "color": "#FF6666"
+        }
+      ]
+    }
+
+    204 No Content
+    Last-Modified-Version: <library version>
+
+Updating an existing setting requires either an `If-Unmodified-Since-Version` header or a `version` property in the JSON, and returns `412 Precondition Failed` if the setting has been modified since that version. A new setting can be created without a version, or with version `0` to ensure that it doesn't already exist. A nonzero version for a setting that doesn't exist returns `404 Not Found`.
+
+<table>
+  <thead>
+    <tr><th colspan="2">Common responses</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>204 No Content</code></td><td>The setting was saved, or the value was unchanged.</td></tr>
+    <tr><td><code>400 Bad Request</code></td><td>The setting name isn't supported, or the value is invalid for the setting.</td></tr>
+    <tr><td><code>403 Forbidden</code></td><td>The setting can only be changed by group admins.</td></tr>
+    <tr><td><code>404 Not Found</code></td><td>A nonzero version was provided for a setting that doesn't exist.</td></tr>
+    <tr><td><code>409 Conflict</code></td><td>The target library is locked.</td></tr>
+    <tr><td><code>412 Precondition Failed</code></td><td>The setting has changed since the specified version.</td></tr>
+    <tr><td><code>428 Precondition Required</code></td><td>The setting exists, and neither <code>If-Unmodified-Since-Version</code> nor a JSON <code>version</code> property was provided.</td></tr>
+  </tbody>
+</table>
+
+### Creating or Updating Multiple Settings
+
+Up to 270 settings can be written in a single request.
+
+    POST <userOrGroupPrefix>/settings
+    Content-Type: application/json
+    If-Unmodified-Since-Version: <last library version>
+
+    {
+      "tagColors": {
+        "value": [
+          {
+            "name": "Important",
+            "color": "#FF6666"
+          }
+        ]
+      },
+      "lastPageIndex_u_ABCD2345": {
+        "value": 12,
+        "version": 1240
+      }
+    }
+
+    204 No Content
+    Last-Modified-Version: <library version>
+
+`If-Unmodified-Since-Version` is optional and checks the library version, returning `412 Precondition Failed` if the library has changed. Each setting can also include a `version` property, which is checked against that setting's version as in single-setting writes.
+
+Unlike other multi-object writes, a settings write normally succeeds or fails as a whole: if any setting is invalid, the API returns an error for the request and no settings are saved.
+
+The exception is a write to a group library that includes admin-only settings (see [Available Settings](#available_settings)) by a member who isn't a group admin. The API saves the other settings and returns `200 OK` with a [write report](#creating_multiple_objects) listing each restricted setting under `failed` with code `403`. Entries are indexed by the setting's position in the request object, with the setting name as `key`. The saved settings are not listed in the report.
+
+<table>
+  <thead>
+    <tr><th colspan="2">Common responses</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>200 OK</code></td><td>Some settings could not be written because they're restricted to group admins. See the response JSON for details.</td></tr>
+    <tr><td><code>204 No Content</code></td><td>The settings were saved.</td></tr>
+    <tr><td><code>400 Bad Request</code></td><td>A setting name isn't supported, or a value is invalid for its setting.</td></tr>
+    <tr><td><code>409 Conflict</code></td><td>The target library is locked.</td></tr>
+    <tr><td><code>412 Precondition Failed</code></td><td>The library or a setting has changed since the specified version.</td></tr>
+    <tr><td><code>413 Request Entity Too Large</code></td><td>More than 270 settings were provided.</td></tr>
+  </tbody>
+</table>
+
+### Deleting a Setting
+
+    DELETE <userOrGroupPrefix>/settings/<settingKey>
+
+    204 No Content
+    Last-Modified-Version: <library version>
+
+Deleting a setting that doesn't exist returns `404 Not Found`.
+
+### Deleting Multiple Settings
+
+Up to 100 settings can be deleted in a single request.
+
+    DELETE <userOrGroupPrefix>/settings?settingKey=<settingKey>,<settingKey>,<settingKey>
+    If-Unmodified-Since-Version: <last library version>
+
+    204 No Content
+    Last-Modified-Version: <library version>
+
+`If-Unmodified-Since-Version` is optional and returns `412 Precondition Failed` if the library has changed since the specified version.
+
+Deleted settings are listed under `settings` in `<userOrGroupPrefix>/deleted?since=<version>`.
+
 ## Multi-Object Requests
 
 ### Creating Multiple Objects

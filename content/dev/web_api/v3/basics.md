@@ -101,6 +101,15 @@ Requests for data in a specific library begin with `/users/<userID>` or `/groups
 | &lt;userOrGroupPrefix&gt;/collections/&lt;collectionKey&gt;/items/top/tags | Tags assigned to top-level items in a given collection                 |
 | &lt;userOrGroupPrefix&gt;/publications/items/tags                     | Tags assigned to items in My Publications                              |
 
+#### Settings
+
+| URI                                              | Description                                                                 |
+|--------------------------------------------------|-----------------------------------------------------------------------------|
+| &lt;userOrGroupPrefix&gt;/settings                    | All synced settings in the library                                          |
+| &lt;userOrGroupPrefix&gt;/settings/&lt;settingKey&gt;      | A specific setting in the library                                           |
+
+Synced settings (colored tags, feeds, reading positions, etc.) are returned as a JSON object keyed by setting name, with each setting's `value` and `version`. See [Setting Requests](dev/web_api/v3/write_requests#setting_requests) for the available settings and how to write them.
+
 ### Other URLs
 
 <table>
