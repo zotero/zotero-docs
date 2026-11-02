@@ -24,7 +24,23 @@ import urllib.parse
 from pathlib import Path
 
 import yaml
-from markdown.extensions.toc import slugify, unique
+from markdown.extensions.toc import slugify as _toc_slugify, unique
+
+
+def slugify(value, separator):
+    """Heading-ID slugify matching DokuWiki's sectionID(): strip leading
+    digits/separators so numbered headings ("2. Provide Steps to Reproduce")
+    keep their old DokuWiki anchors (#provide_steps_to_reproduce) rather than
+    #2_provide_steps_to_reproduce. All-numeric headings become "section<N>"."""
+    slug = _toc_slugify(value, separator)
+    stripped = slug.lstrip('0123456789_-')
+    return stripped or 'section' + re.sub(r'[^0-9]+', '', slug)
+
+
+def on_config(config):
+    # Use the DokuWiki-compatible slugify for the toc extension's heading IDs.
+    config['mdx_configs'].setdefault('toc', {})['slugify'] = slugify
+    return config
 
 
 URL_PREFIX = '/support/'
@@ -151,6 +167,16 @@ def _extract_anchors(body):
     anchors = set()
     for m in HEADING_RE.finditer(body):
         text = m.group(1).strip()
+        # attr_list `{#id}` on a heading sets its ID explicitly; toc then
+        # leaves it alone (but still reserves it for uniqueness).
+        attr = re.search(r'\s*\{:?([^}]*)\}$', text)
+        if attr:
+            text = text[:attr.start()]
+            explicit = re.search(r'#([\w-]+)', attr.group(1))
+            if explicit:
+                seen.add(explicit.group(1))
+                anchors.add(explicit.group(1))
+                continue
         # Strip inline markdown so slugify sees plain text (mirrors what toc
         # does after the page's inline parser has run).
         text = re.sub(r'`([^`]+)`', r'\1', text)
