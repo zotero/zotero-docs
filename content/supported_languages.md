@@ -6,7 +6,7 @@ Zotero's [Unicode](http://en.wikipedia.org/wiki/Unicode) support allows you to i
 
 ### Zotero
 
-In Zotero, the interface language defaults to matching the operating system's language. To use a different language, go to the Edit menu (Windows/Linux) or Zotero menu (Mac) and select Preferences, click on the Advanced tab, and make your selection from the Language drop-down.
+In Zotero, the interface language defaults to matching the operating system's language. To use a different language, go to the Edit menu (Windows/Linux) or Zotero menu (Mac) and select Preferences, navigate to "Appearance and Language" on the General tab, and make your selection from the Language drop-down.
 
 ### Citations and Bibliographies
 
