@@ -1,0 +1,3 @@
+As you add and remove citations in the document, Zotero will automatically update the bibliography to reflect your changes. Generally, that's all you have to do.
+
+In rare cases, however, you may want to add uncited sources to your bibliography (e.g., items included in a review but not cited in the paper) or remove items that are cited in text but which should not be included in the bibliography (e.g., personal communications).
