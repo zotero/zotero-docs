@@ -41,10 +41,11 @@ For development, you'll generally want to leave the app in the staging directory
 
 In most cases, you'll want to use the [helper script](#helper_script) below instead of passing these flags directly to the launcher, but it's helpful to know the available options, which also work with release and beta builds:
 
--   `-ZoteroDebugText` or `-ZoteroDebug` enable [real-time debug output](debug_output#logging_to_a_terminal_window) from `Zotero.debug()`
+-   `-ZoteroDebugText` or `-ZoteroDebug` (`-debug-text` or `-debug` in Zotero 11+) enable [real-time debug output](debug_output#logging_to_a_terminal_window) from `Zotero.debug()`
 -   `-jsconsole` will open the Error Console (Tools → Developer → Error Console)
 -   `-jsdebugger` starts the Firefox Browser Toolbox for [debugging](dev/client_coding/developer_tools), if Zotero was built with devtools enabled; not available in release builds
--   `-ZoteroSkipBundledFiles` skips style and translator initialization, which speeds up startup time after rebuilding if you're working on something that doesn't require styles or translators
+-   `-ZoteroSkipBundledFiles` (`-skip-bundled-files` in Zotero 11+) skips style and translator initialization, which speeds up startup time after rebuilding if you're working on something that doesn't require styles or translators
+-   `-skip-feed-updates` (Zotero 11+) disables automatic feed updates
 
 ### Helper Script
 

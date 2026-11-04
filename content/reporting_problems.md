@@ -112,7 +112,7 @@ For serious problems that prevent you from using the reporting wizard — such a
 
 2a. If you're able to access the Zotero Help menu, go to "Help -> Debug Output Logging -> Restart with Logged Enabled…".
 
-2b. If you can't access the Help menu, or if the problem doesn't occur during a restart, start Zotero via the command line. The steps for that depend on your platform:
+2b. If you can't access the Help menu, or if the problem doesn't occur during a restart, start Zotero via the command line with the `-ZoteroDebug` flag (`-debug` in Zotero 11+). The steps for that depend on your platform:
 
 ##### macOS
 

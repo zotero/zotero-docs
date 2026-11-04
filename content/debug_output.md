@@ -44,7 +44,7 @@ If submitting output fails, you can return to the Debug Output Logging menu and 
 
 ## Logging to a Terminal Window
 
-If you'd like to regularly follow Zotero's debug output in real-time, it may be preferable to have Zotero log to a terminal window.
+If you'd like to regularly follow Zotero's debug output in real-time, it may be preferable to have Zotero log to a terminal window using the `-ZoteroDebugText` flag (`-debug-text` in Zotero 11+).
 
 ### macOS
 
@@ -61,7 +61,7 @@ You can add ` > ~/Desktop/zotero-debug.txt` to the end of the command to redirec
 -   Paste `"C:\Program Files\Zotero\zotero.exe" -ZoteroDebugText` into the console window. It may be necessary to add ` -console` as well.
 -   Press Enter.
 
-Due to limitations of the available console windows on Windows, you may have a better experience using `-ZoteroDebug` instead to use Zotero's internal debug output window.
+Due to limitations of the available console windows on Windows, you may have a better experience using `-ZoteroDebug` (`-debug` in Zotero 11+) instead to use Zotero's internal debug output window.
 
 ### Linux
 
