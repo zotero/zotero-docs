@@ -2,6 +2,18 @@
 
 Changes in released versions of Zotero 10.0 are documented on this page. To follow development, see the [commit log on GitHub](https://github.com/zotero/zotero/commits/). More recent changes may be available in a [beta build](beta_builds).
 
+## Changes in 10.0.8 (November 6, 2026)
+
+- [Security] Block dangerous plugin-provided `zotero://` handlers
+- Fixed startup error after an incompletely applied Zotero update
+- [Mac] Fixed Word plugin installation on macOS 27 (since 10.0.6)
+- [Mac] Support Word split view
+- [Windows] Fixed attachment drag to Outlook or Word inserting text instead of the file
+- Reader fixes
+  - Improved ink annotation rendering performance
+  - Fixed lag when dragging annotations in large PDFs with the annotations sidebar open
+- Miscellaneous other bug fixes
+
 ## Changes in 10.0.7 (October 29, 2026)
 
 - [Security] Remove compromised eMudhra certificates
