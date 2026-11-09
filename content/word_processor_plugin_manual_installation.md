@@ -51,7 +51,7 @@ Note that the path should not include "Zotero" in any way, and if it does you pr
 
 #### Word 2016 and 2019 for Mac
 
-The default location of the Startup folder is `~/Library/Group Containers/UBF8T346G9.Office/User Content/Startup/Word`. (`~/Library` refers to the Library folder within your home directory.) You can open it from the Finder by pressing Cmd-Shift-G and copying in the path. Alternatively, to navigate to it in Finder, hold down Option on your keyboard, click the Go menu, and select Library (which is hidden by default), and then follow the rest of the path.
+The default location of the Startup folder is `~/Library/Group Containers/UBF8T346G9.Office/User Content/Start-up/Word`. (`~/Library` refers to the Library folder within your home directory.) You can open it from the Finder by pressing Cmd-Shift-G and copying in the path. Alternatively, to navigate to it in Finder, hold down Option on your keyboard, click the Go menu, and select Library (which is hidden by default), and then follow the rest of the path.
 
 If changes you make to the Startup folder aren't taking effect, you can confirm that Word isn't set to a different location. In Word, open the "Word" menu in the top-left of the screen and select "Preferences". Click on "File Locations" under "Personal Settings" and click on "Startup" at the bottom of the list.
 
