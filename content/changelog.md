@@ -2,6 +2,12 @@
 
 Changes in released versions of Zotero 10.0 are documented on this page. To follow development, see the [commit log on GitHub](https://github.com/zotero/zotero/commits/). More recent changes may be available in a [beta build](beta_builds).
 
+## Changes in 10.0.9 (November 10, 2026)
+
+*Zotero for Mac only*
+
+- Fixed potential crash on macOS 10.15
+
 ## Changes in 10.0.8 (November 6, 2026)
 
 - [Security] Block dangerous plugin-provided `zotero://` handlers
