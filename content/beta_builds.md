@@ -6,7 +6,7 @@ If you want to run the latest prerelease version of a Zotero component (e.g., to
 
 ## Zotero Beta
 
-**Don't want to run a beta? Download the [release version of Zotero 9](/download/).**
+**Don't want to run a beta? Download the [release version of Zotero](/download/).**
 
 Beta versions of Zotero are currently built from the development line for Zotero 10.
 
