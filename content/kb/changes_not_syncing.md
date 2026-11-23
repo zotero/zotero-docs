@@ -28,7 +28,13 @@ In the [Sync pane](preferences/sync) pane of the settings in the Zotero desktop 
 
 Check the Sync pane of the app settings to make sure you're syncing with the same account you're using to log in to zotero.org and on each of your devices. If the problem is with a group, make sure the account is a member of that group on [zotero.org](/groups).
 
-##### 6) Further troubleshooting
+##### 6) You're using an outdated version of Zotero
+
+If items appear in your [Zotero web library](https://www.zotero.org/mylibrary) but not in the Zotero desktop app, make sure you’re running a version of Zotero that supports all the data fields used in your library. Newer versions of Zotero may introduce fields that older versions cannot recognize. When an older version encounters an unsupported field, it may be unable to download the affected item, and you may see a sync warning such as “Some data in your Zotero library could not be downloaded. It may have been saved with a newer version of Zotero.” Other items may continue to sync, leaving your desktop library incomplete.
+
+Check your Zotero version under Help → About Zotero (or Zotero → About Zotero on macOS). If it’s outdated, install the [latest version of Zotero](https://www.zotero.org/download/), then restart the app and sync again. Also make sure your plugins are up to date and compatible with your version of Zotero. Updating Zotero should allow it to recognize newer data fields and download the affected items.
+
+##### 7) Further troubleshooting
 
 If you're still having trouble, post to the Zotero Forums (in your existing thread, if you have one) with a [Debug ID](debug_output#debug_output_logging) for the first sync after making a change that doesn't sync (e.g., making a change to an item in the online library that doesn't appear in Zotero, or vice versa), along with a description of what's not transferring, including the zotero.org URL after selecting the item in the online library if it appears there. Start debug output logging before making the change and keep it going until the sync has ended.
 
