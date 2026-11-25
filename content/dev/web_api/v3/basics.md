@@ -238,7 +238,7 @@ The following bibliographic data formats can be used as `format`, `include`, and
 | `csv`               | CSV                                                                                                                              |
 | `mods`              | MODS                                                                                                                             |
 | `refer`             | Refer/BibIX                                                                                                                      |
-| `rdf_bibliontology` | [Bibliographic Ontology](http://bibliontology.com/) RDF                                                                          |
+| `rdf_bibliontology` | [Bibliographic Ontology](https://www.dublincore.org/specifications/bibo/bibo/) RDF                                                                          |
 | `rdf_dc`            | Unqualified Dublin Core RDF                                                                                                      |
 | `rdf_zotero`        | Zotero RDF                                                                                                                       |
 | `ris`               | RIS                                                                                                                              |
