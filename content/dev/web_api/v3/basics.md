@@ -425,7 +425,7 @@ For any read or write request, the server may return a `400 Bad Request`, `404 N
 
 Passing an `Expect` header, which is unsupported, will result in a `417 Expectation Failed` response.
 
-[Library/object versioning](dev/web_api/v3/syncing#version_numbers) or [Zotero-Write-Token](dev/web_api/v3/write_requests#zotero_write_token) errors will result in `412 Precondition Failed` or `428 Precondition Required`.
+[Library/object versioning](dev/web_api/v3/syncing#version_numbers) or [Zotero-Write-Token](dev/web_api/v3/write_requests#zotero-write-token) errors will result in `412 Precondition Failed` or `428 Precondition Required`.
 
 `429 Too Many Requests` indicates that the client has been [rate-limited](#rate_limiting).
 
