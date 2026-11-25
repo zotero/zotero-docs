@@ -228,22 +228,22 @@ Note the difference between `format=bib` and `include=bib`/`content=bib`. `forma
 
 The following bibliographic data formats can be used as `format`, `include`, and `content` parameters for items requests:
 
-| Parameter           | Description                                                                                                        |
-|---------------------|--------------------------------------------------------------------------------------------------------------------|
-| `bibtex`            | BibTeX                                                                                                             |
-| `biblatex`          | BibLaTeX                                                                                                           |
-| `bookmarks`         | Netscape Bookmark File Format                                                                                      |
-| `coins`             | COinS                                                                                                              |
-| `csljson`           | [Citation Style Language data format](https://github.com/citation-style-language/schema/blob/master/csl-data.json) |
-| `csv`               | CSV                                                                                                                |
-| `mods`              | MODS                                                                                                               |
-| `refer`             | Refer/BibIX                                                                                                        |
-| `rdf_bibliontology` | [Bibliographic Ontology](http://bibliontology.com/) RDF                                                            |
-| `rdf_dc`            | Unqualified Dublin Core RDF                                                                                        |
-| `rdf_zotero`        | Zotero RDF                                                                                                         |
-| `ris`               | RIS                                                                                                                |
-| `tei`               | Text Encoding Initiative (TEI)                                                                                     |
-| `wikipedia`         | Wikipedia Citation Templates                                                                                       |
+| Parameter           | Description                                                                                                                      |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| `bibtex`            | BibTeX                                                                                                                           |
+| `biblatex`          | BibLaTeX                                                                                                                         |
+| `bookmarks`         | Netscape Bookmark File Format                                                                                                    |
+| `coins`             | COinS                                                                                                                            |
+| `csljson`           | [Citation Style Language data format](https://github.com/citation-style-language/schema/blob/master/schemas/input/csl-data.json) |
+| `csv`               | CSV                                                                                                                              |
+| `mods`              | MODS                                                                                                                             |
+| `refer`             | Refer/BibIX                                                                                                                      |
+| `rdf_bibliontology` | [Bibliographic Ontology](http://bibliontology.com/) RDF                                                                          |
+| `rdf_dc`            | Unqualified Dublin Core RDF                                                                                                      |
+| `rdf_zotero`        | Zotero RDF                                                                                                                       |
+| `ris`               | RIS                                                                                                                              |
+| `tei`               | Text Encoding Initiative (TEI)                                                                                                   |
+| `wikipedia`         | Wikipedia Citation Templates                                                                                                     |
 
 ## Searching
 
