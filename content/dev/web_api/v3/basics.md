@@ -114,7 +114,7 @@ Requests for data in a specific library begin with `/users/<userID>` or `/groups
 <tr class="odd">
 <td>/keys/&lt;key&gt;</td>
 <td>The user id and privileges of the given API key.<br />
-Use the <code>DELETE</code> HTTP method to delete the key. This should generally be done only by a client that created the key originally using <a href="/dev/web_api/v3/OAuth">OAuth</a>.</td>
+Use the <code>DELETE</code> HTTP method to delete the key. This should generally be done only by a client that created the key originally using <a href="/dev/web_api/v3/oauth">OAuth</a>.</td>
 </tr>
 <tr class="even">
 <td>/users/&lt;userID&gt;/groups</td>
@@ -143,7 +143,7 @@ The following parameters are valid for all read requests:
 <tbody>
 <tr class="odd">
 <td><code>format</code></td>
-<td><code>atom</code>, <code>bib</code>, <code>json</code>, <code>keys</code>, <code>versions</code>, <a href="#export_formats">export format</a></td>
+<td><code>atom</code>, <code>bib</code>, <code>json</code>, <code>keys</code>, <code>versions</code>, <a href="#item_export_formats">export format</a></td>
 <td><code>json</code> (or <code>atom</code> if the <code>Accept</code> header includes <code>application/atom+xml</code>)</td>
 <td><code>atom</code> will return an Atom feed suitable for use in feed readers or feed-reading libraries.<br />
 <code>bib</code>, valid only for item requests, will return a formatted bibliography as XHTML. <code>bib</code> mode is currently limited to a maximum of 150 items.<br />
@@ -171,7 +171,7 @@ The [local API](dev/web_api/v3/local_api) does not support `format=atom`; reques
 <tbody>
 <tr class="odd">
 <td><code>include</code></td>
-<td><code>bib</code>, <code>citation</code>, <code>data</code>, <a href="#export_formats">export format</a><br />
+<td><code>bib</code>, <code>citation</code>, <code>data</code>, <a href="#item_export_formats">export format</a><br />
 Multiple formats can be specified by using a comma as the delimiter (<code>include=data,bib</code>).</td>
 <td><code>data</code></td>
 <td>Formats to include in the response:<br />
@@ -197,7 +197,7 @@ Export formats, valid only for item requests, will return data in the specified 
 <tbody>
 <tr class="odd">
 <td><code>content</code></td>
-<td><code>bib</code>, <code>citation</code>, <code>html</code>, <code>json</code>, <a href="#export_formats">export formats</a>, <code>none</code><br />
+<td><code>bib</code>, <code>citation</code>, <code>html</code>, <code>json</code>, <a href="#item_export_formats">export formats</a>, <code>none</code><br />
 Multiple formats can be specified by using a comma as the delimiter (<code>content=json,bib</code>).</td>
 <td><code>html</code></td>
 <td>The format of the Atom response's <code>&lt;content&gt;</code> node:<br />
@@ -228,22 +228,22 @@ Note the difference between `format=bib` and `include=bib`/`content=bib`. `forma
 
 The following bibliographic data formats can be used as `format`, `include`, and `content` parameters for items requests:
 
-| Parameter           | Description                                                                                                        |
-|---------------------|--------------------------------------------------------------------------------------------------------------------|
-| `bibtex`            | BibTeX                                                                                                             |
-| `biblatex`          | BibLaTeX                                                                                                           |
-| `bookmarks`         | Netscape Bookmark File Format                                                                                      |
-| `coins`             | COinS                                                                                                              |
-| `csljson`           | [Citation Style Language data format](https://github.com/citation-style-language/schema/blob/master/csl-data.json) |
-| `csv`               | CSV                                                                                                                |
-| `mods`              | MODS                                                                                                               |
-| `refer`             | Refer/BibIX                                                                                                        |
-| `rdf_bibliontology` | [Bibliographic Ontology](http://bibliontology.com/) RDF                                                            |
-| `rdf_dc`            | Unqualified Dublin Core RDF                                                                                        |
-| `rdf_zotero`        | Zotero RDF                                                                                                         |
-| `ris`               | RIS                                                                                                                |
-| `tei`               | Text Encoding Initiative (TEI)                                                                                     |
-| `wikipedia`         | Wikipedia Citation Templates                                                                                       |
+| Parameter           | Description                                                                                                                      |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| `bibtex`            | BibTeX                                                                                                                           |
+| `biblatex`          | BibLaTeX                                                                                                                         |
+| `bookmarks`         | Netscape Bookmark File Format                                                                                                    |
+| `coins`             | COinS                                                                                                                            |
+| `csljson`           | [Citation Style Language data format](https://github.com/citation-style-language/schema/blob/master/schemas/input/csl-data.json) |
+| `csv`               | CSV                                                                                                                              |
+| `mods`              | MODS                                                                                                                             |
+| `refer`             | Refer/BibIX                                                                                                                      |
+| `rdf_bibliontology` | [Bibliographic Ontology](https://www.dublincore.org/specifications/bibo/bibo/) RDF                                                                          |
+| `rdf_dc`            | Unqualified Dublin Core RDF                                                                                                      |
+| `rdf_zotero`        | Zotero RDF                                                                                                                       |
+| `ris`               | RIS                                                                                                                              |
+| `tei`               | Text Encoding Initiative (TEI)                                                                                                   |
+| `wikipedia`         | Wikipedia Citation Templates                                                                                                     |
 
 ## Searching
 
@@ -425,7 +425,7 @@ For any read or write request, the server may return a `400 Bad Request`, `404 N
 
 Passing an `Expect` header, which is unsupported, will result in a `417 Expectation Failed` response.
 
-[Library/object versioning](dev/web_api/v3/syncing#version_numbers) or [Zotero-Write-Token](dev/web_api/v3/write_requests#zotero_write_token) errors will result in `412 Precondition Failed` or `428 Precondition Required`.
+[Library/object versioning](dev/web_api/v3/syncing#version_numbers) or [Zotero-Write-Token](dev/web_api/v3/write_requests#zotero-write-token) errors will result in `412 Precondition Failed` or `428 Precondition Required`.
 
 `429 Too Many Requests` indicates that the client has been [rate-limited](#rate_limiting).
 
