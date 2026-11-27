@@ -10,9 +10,11 @@ If you have questions about anything on this page or encounter other problems wh
 
 ## Dev Builds
 
-<span style="color: red; font-weight: bold">WARNING:</span> These are test builds based on Firefox 153 intended solely for use by Zotero plugin developers and **should not be used in production**. We strongly recommend using a [separate profile and data directory](https://www.zotero.org/support/kb/multiple_profiles) for development.
+<!-- <span style="color: red; font-weight: bold">WARNING:</span> These are test builds based on Firefox 153 intended solely for use by Zotero plugin developers and **should not be used in production**. We strongly recommend using a [separate profile and data directory](https://www.zotero.org/support/kb/multiple_profiles) for development. -->
 
-These `dev` channel builds will stop updating once a beta is available with these changes.
+The `dev` channel has been paused. Use [Zotero 11 beta builds](/support/beta_builds) for development.
+
+<!-- These `dev` channel builds will stop updating once a beta is available with these changes.
 
   * [Mac](https://www.zotero.org/download/client/dl?channel=dev&platform=mac)
   * [Linux x86_64](https://www.zotero.org/download/client/dl?channel=dev&platform=linux-x86_64)
@@ -22,7 +24,7 @@ These `dev` channel builds will stop updating once a beta is available with thes
   * [Windows ARM64 ZIP](https://www.zotero.org/download/client/dl?channel=dev&platform=win-arm64-zip)
   * [Windows ARM64 Installer](https://www.zotero.org/download/client/dl?channel=dev&platform=win-arm64)
   * [Windows 32-bit ZIP](https://www.zotero.org/download/client/dl?channel=dev&platform=win32-zip)
-  * [Windows 32-bit Installer](https://www.zotero.org/download/client/dl?channel=dev&platform=win32)
+  * [Windows 32-bit Installer](https://www.zotero.org/download/client/dl?channel=dev&platform=win32) -->
 
 ## Updating plugin compatibility
 
