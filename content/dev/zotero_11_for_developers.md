@@ -28,9 +28,9 @@ The `dev` channel has been paused. Use [Zotero 11 beta builds](/support/beta_bui
 
 ## Updating plugin compatibility
 
-**Do not** update your plugin to declare compatibility with Zotero 11 at this time. We'll make an announcement on the [dev list](https://groups.google.com/g/zotero-dev) when Zotero 11 is feature-frozen and it's time to test for compatibility.
+After confirming that your plugin is compatible, update `strict_max_version` in your manifest.json to `11.0.*`. If no changes are required, you can simply update `strict_max_version` in your plugin's update manifest without releasing a new version.
 
-Note that beta, dev, and source builds no longer enforce `strict_max_version`, either at install time or for updates, so you can test a plugin with a lower max version on one of thoes builds without modifying it. Stable builds still enforce it.
+Note that beta, dev, and source builds no longer enforce `strict_max_version`, either at install time or for updates, so you can test a plugin with a lower max version on one of those builds without modifying it. Stable builds still enforce it.
 
 ## Multiple Windows and Library Tabs
 
