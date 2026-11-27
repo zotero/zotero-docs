@@ -6,7 +6,7 @@ For previous changes, see [Zotero 10 for Developers](/support/dev/zotero_10_for_
 
 ## Feedback
 
-If you have questions about anything on this page or encounter other problems while updating your plugin, let us know on the [dev list](https://groups.google.com/g/zotero-dev). Please don't post to the Zotero Forums about Zotero 11 at this time.
+If you have questions about anything on this page or encounter other problems while updating your plugin, let us know on the [dev list](https://groups.google.com/g/zotero-dev).
 
 ## Dev Builds
 
