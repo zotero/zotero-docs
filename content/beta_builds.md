@@ -6,9 +6,9 @@ If you want to run the latest prerelease version of a Zotero component (e.g., to
 
 ## Zotero Beta
 
-**Don't want to run a beta? Download the [release version of Zotero 9](/download/).**
+**Don't want to run a beta? Download the [release version of Zotero 10](/download/).**
 
-Beta versions of Zotero are currently built from the development line for Zotero 10.
+Beta versions of Zotero are currently built from the development line for Zotero 11.
 
 -   [Mac](/download/client/dl?platform=mac&channel=beta)
 -   [Windows 64-bit Installer](/download/client/dl?platform=win-x64&channel=beta)
